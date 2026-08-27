@@ -1,0 +1,22 @@
+{
+  "serviceName": "gs-gacuba-platform",
+  "checkIntervalSeconds": 60,
+  "timeoutSeconds": 5,
+  "endpoints": [
+    {
+      "name": "Frontend Health",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "API Health",
+      "path": "/api/health",
+      "expectedStatus": 200
+    }
+  ],
+  "alertThresholds": {
+    "consecutiveFailures": 3,
+    "latencyWarningMs": 800,
+    "latencyCriticalMs": 2000
+  }
+}

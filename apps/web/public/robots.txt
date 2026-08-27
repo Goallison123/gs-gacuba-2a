@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/private/
+
+Sitemap: https://gsgacuba2a.rw/sitemap.xml

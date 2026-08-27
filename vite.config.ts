@@ -21,20 +21,18 @@ export default defineConfig({
 
   server: {
     host: "0.0.0.0",
-    port: Number(process.env.PORT) || 5173,
-    strictPort: true,
+    port: 3000,
+    allowedHosts: true,
   },
 
   preview: {
     host: "0.0.0.0",
-    port: Number(process.env.PORT) || 4173,
-    strictPort: true,
+    port: 3000,
   },
 
   build: {
     target: "es2022",
     sourcemap: false,
-    minify: "esbuild",
     cssMinify: true,
     reportCompressedSize: true,
     chunkSizeWarningLimit: 1000,

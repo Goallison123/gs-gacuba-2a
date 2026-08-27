@@ -40,6 +40,8 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  const currentPlaceholder = placeholderPages[activePage];
+
   return (
     <div className="flex flex-col min-h-full">
       <Header activePage={activePage} onNavigate={navigate} />
@@ -47,10 +49,10 @@ export default function App() {
       <main className="flex-1">
         {activePage === "home" && <HomePage onNavigate={navigate} />}
         {activePage === "about" && <AboutPage onNavigate={navigate} />}
-        {Object.keys(placeholderPages).includes(activePage) && (
+        {currentPlaceholder && (
           <PlaceholderPage
-            title={placeholderPages[activePage].title}
-            description={placeholderPages[activePage].description}
+            title={currentPlaceholder.title}
+            description={currentPlaceholder.description}
             onNavigate={navigate}
           />
         )}

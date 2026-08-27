@@ -1,0 +1,27 @@
+export const siteConfig = {
+  name: 'Groupe Scolaire Gacuba II A',
+  shortName: 'G.S. Gacuba',
+  tagline: 'Excellence in Education, Character, and Innovation',
+  motto: 'Knowledge, Integrity, and Service',
+  foundedYear: '1984',
+  location: 'Rubavu District, Gisenyi Sector, Western Province, Rwanda',
+  address: 'P.O. Box 128, Rubavu, Rwanda',
+  phone: '+250 788 123 456',
+  secondaryPhone: '+250 788 654 321',
+  email: 'info@gsgacuba2a.rw',
+  admissionsEmail: 'admissions@gsgacuba2a.rw',
+  workingHours: 'Monday – Friday: 07:30 AM – 05:00 PM',
+  social: {
+    twitter: 'https://twitter.com/gsgacuba2a',
+    facebook: 'https://facebook.com/gsgacuba2a',
+    youtube: 'https://youtube.com/@gsgacuba2a',
+    linkedin: 'https://linkedin.com/school/gsgacuba2a',
+  },
+  stats: [
+    { label: 'Enrolled Students', value: '1,450+' },
+    { label: 'Qualified Teachers', value: '68+' },
+    { label: 'National Exam Pass Rate', value: '98.6%' },
+    { label: 'Years of Excellence', value: '40+' },
+  ],
+  logo: '/assets/22de8.png',
+};

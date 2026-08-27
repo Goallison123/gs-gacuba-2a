@@ -1,0 +1,6 @@
+{
+  "name": "GS Gacuba II A",
+  "description": "Official website for GS Gacuba II A in Rubavu District, Rwanda — featuring academic programs, admissions, campus gallery, news, and school information.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

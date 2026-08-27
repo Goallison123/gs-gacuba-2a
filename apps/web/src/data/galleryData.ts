@@ -1,0 +1,68 @@
+import { GalleryItem } from '../types/index.js';
+
+export const galleryItemsData: GalleryItem[] = [
+  {
+    id: 'gal-1',
+    title: 'Modern Science & Chemistry Practicals',
+    category: 'Academics',
+    imageUrl: '/assets/046d0.png',
+    description: 'Upper secondary MS2 students carrying out titrations and molecular analysis in the chemistry lab.',
+    date: '2026-02-10',
+  },
+  {
+    id: 'gal-2',
+    title: 'Interactive Digital ICT Learning Hub',
+    category: 'Academics',
+    imageUrl: '/assets/c1786.png',
+    description: 'Lower secondary learners working on computer coding projects and digital research assignments.',
+    date: '2026-01-20',
+  },
+  {
+    id: 'gal-3',
+    title: 'Rubavu District Championship Volleyball Match',
+    category: 'Sports',
+    imageUrl: '/assets/ba963.png',
+    description: 'GS Gacuba volleyball team in high-energy action during the regional finals.',
+    date: '2026-01-12',
+  },
+  {
+    id: 'gal-4',
+    title: 'Campus Main Entrance & Academic Wings',
+    category: 'Campus',
+    imageUrl: '/assets/e0d1a.png',
+    description: 'Pristine, tree-lined campus environment promoting disciplined and serene learning.',
+    date: '2025-11-05',
+  },
+  {
+    id: 'gal-5',
+    title: 'Annual Student Assembly & National Anthem',
+    category: 'Ceremonies',
+    imageUrl: '/assets/0b754.png',
+    description: 'Morning assembly in the main amphitheatre fostering unity, discipline, and national pride.',
+    date: '2025-10-15',
+  },
+  {
+    id: 'gal-6',
+    title: 'Student Innovation & Robotics Showcase',
+    category: 'Academics',
+    imageUrl: '/assets/720a5.png',
+    description: 'STEM club participants presenting ecological smart sensor circuits.',
+    date: '2025-12-18',
+  },
+  {
+    id: 'gal-7',
+    title: 'Itorero Cultural Dance & Drumming Troupe',
+    category: 'Cultural',
+    imageUrl: '/assets/612da.png',
+    description: 'Traditional Rwandan cultural dance performance celebrating heritage and national unity.',
+    date: '2025-09-24',
+  },
+  {
+    id: 'gal-8',
+    title: 'Athletics & Track Relay Championship',
+    category: 'Sports',
+    imageUrl: '/assets/862fc.png',
+    description: 'Students competing in 400m sprint relays during the annual sports day.',
+    date: '2025-10-10',
+  },
+];
