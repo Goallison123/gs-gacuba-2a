@@ -149,16 +149,16 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
   return (
     <div className="bg-white min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-white overflow-hidden min-h-[480px] lg:min-h-[520px] flex items-center border-b border-gray-100/60">
-        {/* Right side large orange curved backdrop */}
+      <section className="relative bg-white overflow-hidden border-b border-gray-100/60">
+        {/* Right side large orange curved backdrop on desktop */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-full md:w-[50%] lg:w-[48%] bg-[#ff8c00] rounded-bl-[140px] lg:rounded-bl-[200px] pointer-events-none z-0"
+          className="hidden md:block absolute right-0 top-0 bottom-0 md:w-[48%] lg:w-[48%] bg-[#ff8c00] rounded-bl-[140px] lg:rounded-bl-[200px] pointer-events-none z-0"
           aria-hidden="true"
         />
 
-        {/* Decorative Peeping Student Cutout entering from the far-left edge */}
+        {/* Decorative Peeping Student Cutout on desktop */}
         <div 
-          className="absolute left-0 bottom-0 sm:bottom-0 md:bottom-0 w-[170px] sm:w-[220px] md:w-[270px] lg:w-[320px] xl:w-[360px] pointer-events-none z-10 select-none -translate-x-[20%] sm:-translate-x-[15%] md:-translate-x-[10%] lg:-translate-x-[8%]"
+          className="hidden md:block absolute left-0 bottom-0 w-[240px] lg:w-[320px] xl:w-[360px] pointer-events-none z-10 select-none -translate-x-[12%] lg:-translate-x-[8%]"
           aria-hidden="true"
         >
           <img
@@ -168,12 +168,12 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
           />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-10 lg:py-14 relative z-20 w-full">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-8 sm:py-10 lg:py-14 relative z-20 w-full">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            {/* Left Content Column with comfortable left padding for the peeping student */}
-            <div className="md:col-span-7 lg:col-span-7 flex flex-col items-start gap-4 sm:gap-5 pl-24 sm:pl-32 md:pl-44 lg:pl-56 xl:pl-60">
+            {/* Left Content Column with comfortable left padding for the peeping student on desktop */}
+            <div className="md:col-span-7 flex flex-col items-start gap-4 sm:gap-5 md:pl-36 lg:pl-56 xl:pl-64 text-left">
               <div className="space-y-0.5">
-                <h1 className="font-extrabold text-[#1e244b] text-3xl sm:text-4xl lg:text-[46px] tracking-tight leading-[1.1]">
+                <h1 className="font-extrabold text-[#1e244b] text-3xl sm:text-4xl lg:text-[46px] tracking-tight leading-[1.12]">
                   See it.<br />
                   Feel it.<br />
                   Live it.
@@ -193,10 +193,10 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
               </h2>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 w-full sm:w-auto">
                 <button
                   onClick={handleAdmission}
-                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-full shadow-xs transition-colors flex items-center gap-1.5 cursor-pointer"
+                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-6 py-2.5 rounded-full shadow-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>Apply for Admission</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -204,26 +204,54 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
 
                 <button
                   onClick={handleAsk}
-                  className="bg-white hover:bg-gray-50 text-[#1e244b] border border-gray-300 font-semibold text-xs sm:text-[13px] px-5 py-2.5 rounded-full shadow-xs transition-colors cursor-pointer"
+                  className="bg-white hover:bg-gray-50 text-[#1e244b] border border-gray-300 font-semibold text-xs sm:text-[13px] min-h-[44px] px-6 py-2.5 rounded-full shadow-xs flex items-center justify-center transition-colors cursor-pointer"
                 >
                   Ask about us
                 </button>
               </div>
             </div>
 
-            {/* Right Column: Visual Campus Tour Circle with School Logo */}
-            <div className="md:col-span-5 lg:col-span-5 flex justify-center items-center">
-              <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full border-2 border-white/40 bg-white/10 backdrop-blur-xs flex flex-col items-center justify-center p-6 text-center text-white shadow-lg">
-                {/* School Logo */}
-                <div className="w-12 h-12 sm:w-14 sm:h-14 mb-2 flex items-center justify-center">
+            {/* Right Column / Mobile Visual Tour Showcase */}
+            <div className="md:col-span-5 flex justify-center items-center w-full">
+              {/* On mobile: styled orange banner card with student and circular tour badge */}
+              <div className="md:hidden w-full bg-[#ff8c00] rounded-3xl p-5 sm:p-6 relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-5 shadow-md">
+                {/* Peeking student inside mobile banner */}
+                <div className="w-36 xs:w-44 shrink-0 -mb-5 -ml-3 self-end sm:self-auto">
+                  <img
+                    src={imgKidsPeeking}
+                    alt="GS Gacuba student"
+                    className="w-full h-auto object-contain object-bottom"
+                  />
+                </div>
+
+                {/* Tour circular badge */}
+                <div className="w-40 h-40 xs:w-44 xs:h-44 rounded-full border-2 border-white/40 bg-white/10 backdrop-blur-xs flex flex-col items-center justify-center p-4 text-center text-white shadow-md mx-auto">
+                  <div className="w-9 h-9 mb-1.5 flex items-center justify-center">
+                    <img
+                      src={schoolLogo}
+                      alt="GS Gacuba Logo"
+                      className="w-full h-full object-contain brightness-0 invert"
+                    />
+                  </div>
+                  <p className="font-extrabold text-base xs:text-lg leading-tight">
+                    Visual Campus<br />Tour
+                  </p>
+                  <p className="text-[11px] text-white/90 font-medium mt-1 tracking-wide">
+                    Rubavu, Rwanda
+                  </p>
+                </div>
+              </div>
+
+              {/* On desktop: Visual Campus Tour Circle in the orange backdrop */}
+              <div className="hidden md:flex w-56 h-56 lg:w-72 lg:h-72 rounded-full border-2 border-white/40 bg-white/10 backdrop-blur-xs flex-col items-center justify-center p-6 text-center text-white shadow-lg">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 mb-2 flex items-center justify-center">
                   <img
                     src={schoolLogo}
                     alt="GS Gacuba Logo"
                     className="w-full h-full object-contain brightness-0 invert"
                   />
                 </div>
-
-                <p className="font-extrabold text-xl sm:text-2xl leading-tight">
+                <p className="font-extrabold text-xl lg:text-2xl leading-tight">
                   Visual Campus<br />Tour
                 </p>
                 <p className="text-xs text-white/90 font-medium mt-1.5 tracking-wide">
@@ -236,7 +264,7 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
       </section>
 
       {/* Gallery Section */}
-      <section className="bg-white py-12 lg:py-16 flex-1">
+      <section className="bg-white py-10 sm:py-12 lg:py-16 flex-1">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
           {/* Gallery Heading */}
           <div className="mb-5">
@@ -246,14 +274,14 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
           </div>
 
           {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-8">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-8">
             {categories.map((cat) => {
               const isActive = selectedCategory === cat;
               return (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer ${
+                  className={`px-4 sm:px-5 py-2 sm:py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer min-h-[38px] flex items-center justify-center ${
                     isActive
                       ? "bg-[#ff8c00] text-white shadow-xs"
                       : "bg-white text-[#ff8c00] border border-[#ff8c00] hover:bg-orange-50/50"
@@ -265,21 +293,21 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
             })}
           </div>
 
-          {/* 3-Column Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 3-Column Gallery Grid: Responsive 1-col mobile, 2-col tablet, 3-col desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.slice(0, 3).map((item) => {
               const currentLike = likesState[item.id] || { liked: false, disliked: false };
               return (
                 <div
                   key={item.id}
-                  className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between"
+                  className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow"
                 >
                   {/* Photo Frame */}
                   <div className="aspect-[16/11] overflow-hidden bg-gray-100">
                     <img
                       src={item.imageUrl}
                       alt={item.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>
 
@@ -304,7 +332,7 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
                     <div className="pt-2 flex items-center justify-end gap-2">
                       <button
                         onClick={() => handleDislike(item.id)}
-                        className={`px-3.5 py-1 rounded-md text-[11px] font-medium transition-colors cursor-pointer ${
+                        className={`px-3.5 py-1.5 rounded-md text-[11px] font-medium transition-colors cursor-pointer min-h-[32px] ${
                           currentLike.disliked
                             ? "bg-gray-200 text-gray-800 border border-gray-400"
                             : "bg-white text-gray-600 border border-gray-300 hover:bg-gray-50"
@@ -315,7 +343,7 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
 
                       <button
                         onClick={() => handleLike(item.id)}
-                        className={`px-4 py-1 rounded-md text-[11px] font-semibold transition-colors cursor-pointer text-white ${
+                        className={`px-4 py-1.5 rounded-md text-[11px] font-semibold transition-colors cursor-pointer text-white min-h-[32px] ${
                           currentLike.liked
                             ? "bg-[#3e2e85]"
                             : "bg-[#554694] hover:bg-[#46387d]"
@@ -331,14 +359,14 @@ export default function GalleryPage({ onNavigate, onOpenAdmission, onOpenAsk }: 
           </div>
 
           {/* Pagination */}
-          <div className="flex items-center justify-center gap-2 mt-10 sm:mt-12">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-10 sm:mt-12">
             {[1, 2, 3, 4, 5, 6].map((pg) => {
               const isCurrent = currentPage === pg;
               return (
                 <button
                   key={pg}
                   onClick={() => setCurrentPage(pg)}
-                  className={`w-7 h-7 sm:w-8 sm:h-8 rounded-md text-xs font-semibold transition-colors cursor-pointer ${
+                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg text-xs sm:text-sm font-semibold flex items-center justify-center transition-colors cursor-pointer ${
                     isCurrent
                       ? "bg-[#1e244b] text-white shadow-xs"
                       : "bg-white text-[#ff8c00] border border-[#ff8c00] hover:bg-orange-50"

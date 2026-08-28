@@ -12,6 +12,8 @@
 ### Operable
 - **Keyboard Navigation**: All interactive elements (buttons, links, form inputs, modals, accordions) are accessible via `Tab` and `Shift+Tab`.
 - **Focus Indicators**: Visible focus rings with high contrast outline.
+- **Touch Target Sizing**: All mobile tap targets (navigation links, buttons, filter chips, pagination items, and carousel dots) meet or exceed the `44px × 44px` minimum interactive dimension.
+- **Carousel & Pagination Labels**: Carousel indicator buttons and pagination chips contain explicit `aria-label` descriptors (e.g., `aria-label="Show leader 1"`, `aria-label="Page 1"`).
 - **Skip to Content**: Skip link provided for screen readers to jump directly to `<main id="main-content">`.
 
 ### Understandable

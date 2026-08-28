@@ -7,6 +7,7 @@ import ComingSoonPage from "./pages/ComingSoonPage";
 import ContactModal from "./components/ContactModal";
 import AdmissionModal from "./components/AdmissionModal";
 import UserProfileModal from "./components/UserProfileModal";
+import SearchModal from "./components/SearchModal";
 
 const pageTitleMap: Record<string, string> = {
   news: "News & Events",
@@ -25,6 +26,8 @@ export default function App() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [admissionModalOpen, setAdmissionModalOpen] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [initialSearchQuery, setInitialSearchQuery] = useState("");
   const [initialInquiryTopic, setInitialInquiryTopic] = useState("");
 
   useEffect(() => {
@@ -33,6 +36,11 @@ export default function App() {
 
   function handleNavigate(page: string) {
     setActivePage(page);
+  }
+
+  function handleOpenSearch(query?: string) {
+    setInitialSearchQuery(query || "");
+    setSearchModalOpen(true);
   }
 
   function handleOpenAsk(query?: string) {
@@ -61,6 +69,7 @@ export default function App() {
         onOpenAsk={handleOpenAsk}
         onOpenAdmission={handleOpenAdmission}
         onOpenProfile={handleOpenProfile}
+        onOpenSearch={handleOpenSearch}
       />
 
       {/* Main Page Routing */}
@@ -99,6 +108,17 @@ export default function App() {
         )}
       </main>
 
+      {/* Instant Spotlight / Search Modal */}
+      <SearchModal
+        isOpen={searchModalOpen}
+        onClose={() => setSearchModalOpen(false)}
+        initialQuery={initialSearchQuery}
+        onNavigate={handleNavigate}
+        onOpenAdmission={handleOpenAdmission}
+        onOpenContact={handleOpenAsk}
+        onOpenProfile={handleOpenProfile}
+      />
+
       {/* Direct Contact / Inquiry Modal for the Ask button */}
       <ContactModal
         isOpen={contactModalOpen}
@@ -124,3 +144,4 @@ export default function App() {
     </div>
   );
 }
+

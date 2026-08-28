@@ -125,11 +125,11 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
           />
         </svg>
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-3 sm:pt-4 lg:pt-6 pb-0 relative z-10 w-full">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 lg:pt-10 pb-0 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
             {/* Left Column: Hero Text & Callouts */}
-            <div className="lg:col-span-7 flex flex-col gap-5 pb-8 sm:pb-12">
-              <h1 className="font-extrabold text-[#1e244b] text-3xl sm:text-4xl lg:text-[46px] leading-[1.12] tracking-tight">
+            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 pb-6 sm:pb-12 text-left">
+              <h1 className="font-extrabold text-[#1e244b] text-2xl sm:text-4xl lg:text-[46px] leading-[1.15] tracking-tight">
                 Shaping the leaders<br />
                 and thinkers of<br />
                 <span className="text-white">tomorrow</span>
@@ -139,7 +139,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
                 Welcome to GS Gacuba II A, providing a foundation of academic excellence in Rubavu across Ordinary Level and advanced MPC &amp; HGL streams (Now MS2 and Arts and Humanities).
               </p>
 
-              {/* Phone CTA Component - Clean circle icon with white text on hero background */}
+              {/* Phone CTA Component */}
               <div className="flex items-center gap-3 pt-1">
                 <div className="w-10 h-10 rounded-full bg-[#ff8c00] border border-white/30 flex items-center justify-center text-white shrink-0 shadow-xs">
                   <Phone className="w-4 h-4" />
@@ -157,11 +157,11 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
                 </div>
               </div>
 
-              {/* Action Buttons: Apply for admission & Ask about us */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={handleAdmission}
-                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs flex items-center gap-1.5 cursor-pointer transition-colors"
+                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span>Apply for admission</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -169,19 +169,19 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
 
                 <button
                   onClick={handleAsk}
-                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs border border-white/25 cursor-pointer transition-colors"
+                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs border border-white/25 flex items-center justify-center cursor-pointer transition-colors"
                 >
                   Ask about us
                 </button>
               </div>
             </div>
 
-            {/* Right Column: Student Cutout Photo (Larger prominent display) */}
-            <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end">
+            {/* Right Column: Student Cutout Photo */}
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end overflow-hidden max-h-[380px] sm:max-h-[500px] md:max-h-[620px] lg:max-h-[820px]">
               <img
                 src={imgHeroStudent}
                 alt="GS Gacuba II A Student"
-                className="max-h-[600px] sm:max-h-[750px] lg:max-h-[920px] w-auto object-contain object-bottom block z-10 select-none scale-110 lg:scale-125 origin-bottom"
+                className="max-h-[380px] sm:max-h-[500px] md:max-h-[620px] lg:max-h-[820px] w-auto max-w-full object-contain object-bottom block z-10 select-none scale-105 sm:scale-110 lg:scale-120 origin-bottom"
               />
             </div>
           </div>
@@ -229,7 +229,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
       </section>
 
       {/* 3. Streams Section */}
-      <section className="bg-white py-14 lg:py-16">
+      <section className="bg-white py-12 sm:py-14 lg:py-16">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
           {/* Header row */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
@@ -237,14 +237,14 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-[#ff8c00] font-bold">—</span>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#ff8c00]">
-                  EXLORE OUR SCHOOL
+                  EXPLORE OUR SCHOOL
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-[#1e244b]">Streams</h2>
             </div>
             <button
               onClick={() => onNavigate("academics")}
-              className="text-[#ff8c00] hover:text-[#e07b00] text-xs sm:text-sm font-bold flex items-center gap-1 self-start sm:self-auto cursor-pointer"
+              className="text-[#ff8c00] hover:text-[#e07b00] text-xs sm:text-sm font-bold flex items-center gap-1 self-start sm:self-auto min-h-[44px] cursor-pointer"
             >
               <span>view levels and streams details</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -252,7 +252,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
           </div>
 
           {/* 3 Stream Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {streams.map((stream) => (
               <div
                 key={stream.title}
@@ -265,15 +265,15 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
                   >
                     <img src={stream.icon} alt="" className="w-5 h-5 object-contain" />
                   </div>
-                  <h3 className="text-base font-bold text-[#1e244b] mb-2">{stream.title}</h3>
-                  <p className="text-xs text-[#6d758f] leading-relaxed mb-6">{stream.desc}</p>
+                  <h3 className="text-base sm:text-lg font-bold text-[#1e244b] mb-2">{stream.title}</h3>
+                  <p className="text-xs sm:text-[13px] text-[#6d758f] leading-relaxed mb-6">{stream.desc}</p>
                 </div>
                 <button
                   onClick={() => onNavigate(stream.linkId)}
-                  className="text-[#ff8c00] group-hover:text-[#e07b00] text-xs font-bold flex items-center gap-1 self-start transition-colors cursor-pointer"
+                  className="text-[#ff8c00] group-hover:text-[#e07b00] text-xs sm:text-sm font-bold flex items-center gap-1 self-start min-h-[40px] transition-colors cursor-pointer"
                 >
                   <span>Learn More</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </div>
             ))}
@@ -282,12 +282,12 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
       </section>
 
       {/* 4. Why Choose Us Section */}
-      <section className="bg-white py-14 lg:py-16 border-t border-gray-100">
+      <section className="bg-white py-12 sm:py-14 lg:py-16 border-t border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
             {/* Left Column: Image with Students working on laptop */}
             <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden shadow-md bg-gray-100 aspect-[4/3] max-h-[400px]">
+              <div className="rounded-2xl overflow-hidden shadow-md bg-gray-100 aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] max-h-[420px]">
                 <img
                   src={imgWhyPhoto}
                   alt="GS Gacuba II A Students collaborating with laptop"
@@ -332,7 +332,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate("about")}
-                  className="bg-[#5a6278] hover:bg-[#1e244b] text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-md shadow-xs transition-colors cursor-pointer"
+                  className="bg-[#5a6278] hover:bg-[#1e244b] text-white text-xs sm:text-sm font-semibold min-h-[44px] px-5 py-2.5 rounded-md shadow-xs transition-colors cursor-pointer"
                 >
                   Know More About Us
                 </button>
@@ -343,7 +343,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
       </section>
 
       {/* 5. Orange CTA Banner Section: "You were never late, you just hesitated!" */}
-      <section className="bg-[#ff8c00] relative overflow-hidden py-10 lg:py-12">
+      <section className="bg-[#ff8c00] relative overflow-hidden py-10 sm:py-12 lg:py-14">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Content */}
@@ -352,20 +352,20 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
                 You were never late,<br />you just hesitated!
               </h2>
               <p className="text-white/95 text-xs sm:text-sm leading-relaxed max-w-md font-normal">
-                Tired of boarding stresses? Expensive schools, academically unstable schools? Need a school that  cares about your vision?
+                Tired of boarding stresses? Expensive schools, academically unstable schools? Need a school that cares about your vision?
               </p>
 
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={handleAdmission}
-                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs transition-colors flex items-center gap-1.5 cursor-pointer"
+                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>Apply for admission</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={handleAsk}
-                  className="bg-[#e67500] hover:bg-[#cc6600] text-white font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs border border-white/20 transition-colors cursor-pointer"
+                  className="bg-[#e67500] hover:bg-[#cc6600] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs border border-white/20 flex items-center justify-center transition-colors cursor-pointer"
                 >
                   Ask about us
                 </button>
@@ -388,7 +388,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
       </section>
 
       {/* 6. Best Performing Students Section */}
-      <section className="bg-white py-14 lg:py-16">
+      <section className="bg-white py-12 sm:py-14 lg:py-16">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Heading */}
@@ -434,7 +434,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
             </div>
 
             {/* Right Column: Featured Big Orange Quote Card */}
-            <div className="lg:col-span-4 bg-[#ff8c00] text-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-md">
+            <div className="lg:col-span-4 bg-[#ff8c00] text-white rounded-2xl p-5 sm:p-7 flex flex-col justify-between shadow-md">
               <blockquote className="text-xs sm:text-sm font-medium text-white leading-relaxed mb-6">
                 &ldquo;With big dreams and daily effort, even the smallest steps can lead to the highest success.&rdquo;
               </blockquote>

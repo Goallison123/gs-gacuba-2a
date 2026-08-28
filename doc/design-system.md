@@ -30,6 +30,12 @@
   - Small / Caption: 13px – 14px (Line-height: 1.5)
 
 ## 3. Spacing & Grid System
-- Standard container max-width: `1440px` with responsive horizontal padding (`px-4 sm:px-8 lg:px-16 xl:px-24`).
-- Section vertical rhythm: `py-16 md:py-24`.
-- Component corner radius: `rounded-xl` (12px) to `rounded-2xl` (16px).
+- Standard container max-width: `1440px` with responsive horizontal padding (`px-4 sm:px-8 lg:px-12`).
+- Section vertical rhythm: `py-10 sm:py-14 lg:py-18`.
+- Component corner radius: `rounded-xl` (12px) to `rounded-2xl` (16px) for cards, `rounded-full` for badges, filter pills, and callout buttons.
+- Touch target standard: `min-h-[44px]` for mobile controls and CTA triggers.
+
+## 4. Design References & Source Systems
+- **V1 Client Prototype**: [GS Gacuba V1](https://gs-gacuba-2a.vercel.app/) — Historical reference presented to the school IT team and headteacher.
+- **V2 Active Figma System**: [GS Gacuba Figma Design](https://www.figma.com/design/UtKayiWG7C7Rx7UOsorHtk/GS-GACUBA-website?node-id=0-1&t=q0YNaRTSuGgBEeBZ-0) — Active UI/UX specification and typography/color token reference.
+- **Design Repository**: Located in `/design/original/README.md` and `/design/brand/`.

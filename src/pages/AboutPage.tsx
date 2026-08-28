@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "../components/Footer";
 import { ArrowRight } from "lucide-react";
 
@@ -13,10 +14,10 @@ const highlights = [
 ];
 
 const leaders = [
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", hasDot: false },
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", hasDot: true },
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", hasDot: false },
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", hasDot: false },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
 ];
 
 interface AboutPageProps {
@@ -26,6 +27,7 @@ interface AboutPageProps {
 }
 
 export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: AboutPageProps) {
+  const [activeLeaderIndex, setActiveLeaderIndex] = useState(1);
   function handleAdmission() {
     if (onOpenAdmission) {
       onOpenAdmission();
@@ -46,17 +48,12 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
     <div className="bg-white min-h-screen flex flex-col">
       {/* 1. Hero Section: Diagonal Split (Orange Left + Classroom Photo Right + Headmaster Overlay Card) */}
       <section className="relative bg-[#ff8c00] overflow-hidden min-h-[460px] lg:min-h-[500px] flex items-center">
-        {/* Right Classroom Photo Background */}
+        {/* Right Classroom Photo Background with clean diagonal clip */}
         <div
-          className="absolute inset-0 hidden md:block md:left-[36%] lg:left-[40%] bg-cover bg-center"
-          style={{ backgroundImage: `url(${imgHeroStory})` }}
-        />
-
-        {/* Diagonal Orange Shape on Left */}
-        <div
-          className="absolute inset-0 bg-[#ff8c00] hidden md:block pointer-events-none"
+          className="absolute inset-0 hidden md:block bg-cover bg-center"
           style={{
-            clipPath: "polygon(0 0, 41% 0, 53% 100%, 0 100%)",
+            backgroundImage: `url(${imgHeroStory})`,
+            clipPath: "polygon(42% 0, 100% 0, 100% 100%, 54% 100%)",
           }}
         />
 
@@ -78,10 +75,10 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={handleAdmission}
-                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-md shadow-xs flex items-center gap-1.5 cursor-pointer transition-colors"
+                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[44px] px-4 sm:px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span>Apply for admission</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -89,7 +86,7 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
 
                 <button
                   onClick={handleAsk}
-                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-md shadow-xs border border-white/60 cursor-pointer transition-colors"
+                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-4 sm:px-5 py-2.5 rounded-md shadow-xs border border-white/60 flex items-center justify-center cursor-pointer transition-colors"
                 >
                   Contact us
                 </button>
@@ -97,13 +94,13 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
             </div>
 
             {/* Right Column: Classroom Photo on Mobile, and Headmaster Overlay Card */}
-            <div className="md:col-span-5 lg:col-span-6 relative flex justify-center md:justify-end items-end">
+            <div className="md:col-span-5 lg:col-span-6 relative flex flex-col sm:flex-row md:flex-col justify-center md:justify-end items-center md:items-end gap-4">
               {/* On mobile only: show classroom photo */}
-              <div className="md:hidden w-full rounded-2xl overflow-hidden shadow-lg mb-4">
+              <div className="md:hidden w-full rounded-2xl overflow-hidden shadow-lg max-h-52">
                 <img
                   src={imgHeroStory}
                   alt="Classroom Study"
-                  className="w-full h-48 object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -129,12 +126,12 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
       </section>
 
       {/* 2. School Foundation Section: Aerial Photo (Left) + General School Content (Right) */}
-      <section className="bg-white py-14 lg:py-16">
+      <section className="bg-white py-12 sm:py-14 lg:py-16">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
             {/* Left Column: Large Aerial Photo with Rounded Corners */}
             <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden shadow-md bg-gray-100 aspect-[4/3] max-h-[420px]">
+              <div className="rounded-2xl overflow-hidden shadow-md bg-gray-100 aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] max-h-[420px]">
                 <img
                   src={imgCampus}
                   alt="GS Gacuba II A Campus Overview"
@@ -175,7 +172,7 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate("gallery")}
-                  className="bg-[#1e244b] hover:bg-[#161a38] text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-md shadow-xs flex items-center gap-1.5 cursor-pointer transition-colors"
+                  className="bg-[#1e244b] hover:bg-[#161a38] text-white text-xs sm:text-sm font-semibold min-h-[44px] px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span>Explore our school</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -187,7 +184,7 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
       </section>
 
       {/* 3. School Leadership Section: Decorative Graphic Background + 4 Cards */}
-      <section className="relative py-14 lg:py-18 bg-gradient-to-r from-[#e87500] via-[#f58220] to-[#e67500] overflow-hidden">
+      <section className="relative py-12 sm:py-14 lg:py-18 bg-gradient-to-r from-[#e87500] via-[#f58220] to-[#e67500] overflow-hidden">
         {/* Decorative Wave/Curved Contour Lines in Background */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none opacity-30"
@@ -227,7 +224,7 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
           {/* Centered Heading */}
-          <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
+          <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#111827]">
               The school leadership
             </h2>
@@ -241,10 +238,15 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
             {leaders.map((leader, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl overflow-hidden shadow-md border border-white/20 flex flex-col group hover:shadow-lg transition-shadow duration-200"
+                onClick={() => setActiveLeaderIndex(idx)}
+                className={`bg-white rounded-xl overflow-hidden shadow-md border transition-all duration-200 cursor-pointer flex flex-col group ${
+                  activeLeaderIndex === idx
+                    ? "ring-2 ring-[#ff8c00] shadow-lg scale-[1.02]"
+                    : "border-white/20 hover:shadow-lg hover:border-[#ff8c00]/40"
+                }`}
               >
                 {/* Gray/Slate Portrait Area with monochrome photo */}
-                <div className="bg-[#4b5563] h-[220px] sm:h-[240px] relative overflow-hidden flex items-end justify-center">
+                <div className="bg-[#4b5563] h-[200px] sm:h-[220px] md:h-[240px] relative overflow-hidden flex items-end justify-center">
                   <img
                     src={imgHeadmaster}
                     alt={leader.name}
@@ -254,11 +256,8 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
 
                 {/* Bottom White Info Box */}
                 <div className="p-3.5 bg-white">
-                  <h4 className="font-bold text-xs sm:text-[13px] text-[#111827] flex items-center">
-                    <span>{leader.name}</span>
-                    {leader.hasDot && (
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#ff8c00] ml-1.5 shrink-0" />
-                    )}
+                  <h4 className="font-bold text-xs sm:text-[13px] text-[#111827]">
+                    {leader.name}
                   </h4>
                   <p className="text-[11px] text-[#2563eb] font-medium mt-0.5">
                     {leader.role}
@@ -268,11 +267,31 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
             ))}
           </div>
 
+          {/* Active Image Indicator Dots below the cards with accessible touch padding */}
+          <div className="flex items-center justify-center gap-3 mt-6">
+            {leaders.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                onClick={() => setActiveLeaderIndex(dotIdx)}
+                aria-label={`Show leader ${dotIdx + 1}`}
+                className="p-2 -m-2 cursor-pointer flex items-center justify-center focus:outline-none"
+              >
+                <span
+                  className={`h-2.5 rounded-full transition-all duration-300 block ${
+                    activeLeaderIndex === dotIdx
+                      ? "w-7 bg-[#ff8c00]"
+                      : "w-2.5 bg-[#111827]/25 hover:bg-[#111827]/40"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
           {/* Bottom Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-8 sm:mt-10">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mt-8 sm:mt-10">
             <button
               onClick={handleAdmission}
-              className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Apply for admission</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -280,7 +299,7 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
 
             <button
               onClick={handleAsk}
-              className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs border border-white/30 cursor-pointer transition-colors"
+              className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs border border-white/30 flex items-center justify-center cursor-pointer transition-colors"
             >
               Ask about us
             </button>
