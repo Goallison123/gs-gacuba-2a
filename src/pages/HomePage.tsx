@@ -73,7 +73,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
   return (
     <div className="bg-white min-h-screen flex flex-col">
       {/* 1. Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#e87500] via-[#f58220] to-[#e67500] overflow-hidden min-h-[480px] lg:min-h-[530px] flex items-end">
+      <section className="relative bg-gradient-to-r from-[#e87500] via-[#f58220] to-[#e67500] overflow-hidden flex items-end m-0 p-0">
         {/* School Building Photo Background with warm color overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-multiply pointer-events-none"
@@ -125,7 +125,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
           />
         </svg>
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 sm:pt-12 lg:pt-16 pb-0 relative z-10 w-full">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-3 sm:pt-4 lg:pt-6 pb-0 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
             {/* Left Column: Hero Text & Callouts */}
             <div className="lg:col-span-7 flex flex-col gap-5 pb-8 sm:pb-12">
@@ -176,12 +176,12 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
               </div>
             </div>
 
-            {/* Right Column: Student Cutout Photo (Integrated directly into Hero, NO glass card) */}
+            {/* Right Column: Student Cutout Photo (Larger prominent display) */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end">
               <img
                 src={imgHeroStudent}
                 alt="GS Gacuba II A Student"
-                className="max-h-[380px] sm:max-h-[440px] lg:max-h-[490px] w-auto object-contain object-bottom block z-10 select-none"
+                className="max-h-[600px] sm:max-h-[750px] lg:max-h-[920px] w-auto object-contain object-bottom block z-10 select-none scale-110 lg:scale-125 origin-bottom"
               />
             </div>
           </div>
