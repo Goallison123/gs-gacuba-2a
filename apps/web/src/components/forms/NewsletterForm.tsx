@@ -16,7 +16,7 @@ export function NewsletterForm() {
       await postData('/newsletter/subscribe', { email });
       setSubscribed(true);
     } catch {
-      setSubscribed(true); // Graceful fallback
+      setSubscribed(true);
     } finally {
       setLoading(false);
     }

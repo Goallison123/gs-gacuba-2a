@@ -1,65 +1,46 @@
 # Information Architecture & Sitemap
 
-## 1. Sitemap Structure
+## 1. Page Readiness & Release Phases
+
+The platform is structured with three core production-ready pages, while supporting routes display a standardized coming soon status:
+
+- **Active & Production-Ready**:
+  - `Home` (`/`) — Comprehensive landing page with hero, streams, leadership highlights, student achievements, and admission callouts.
+  - `About Us` (`/about`) — School history, headmaster's welcome, foundation pillars, and administrative leadership.
+  - `Gallery` (`/gallery`) — Visual campus tour, exact peeping student composition, categorized media feeds, and curated school moments.
+- **Coming Soon (Phase 2 Roadmap)**:
+  - `Academics`, `Admissions`, `Student Life`, `Facilities`, `Leadership`, `News & Events`, `Careers`, `FAQ`, and `Contact` present a clean card linking back to Home and the Admission portal.
+
+---
+
+## 2. Sitemap Structure
 
 ```text
 GS Gacuba Web Portal
-├── Home (/)
-├── About Us (/about)
+├── Home (/) [READY]
+│   ├── Hero & Value Proposition
+│   ├── Quick Stats (800+ Students, NESA Accredited)
+│   ├── Academic Streams (MS2, Arts, O-Level)
+│   ├── Why Choose Us Highlights
+│   ├── Outstanding Student Spotlight
+│   └── Admission Callout
+├── About Us (/about) [READY]
 │   ├── School History & Heritage
 │   ├── Mission, Vision & Core Values
-│   ├── Principal's Welcoming Address
-│   └── Accreditation & Partnerships
-├── Academics (/academics)
-│   ├── Ordinary Level (O-Level Curriculum)
-│   ├── Advanced Level / MS2 Stream (Mathematics & Sciences)
-│   ├── Arts & Humanities Stream
-│   ├── Academic Calendar & Timetables
-│   └── Examination & Performance Statistics
-├── Admissions (/admissions)
-│   ├── Admission Guidelines & Requirements
-│   ├── Fee Structure & Scholarships
-│   ├── Online Application Portal
-│   └── Enrollment FAQs
-├── Student Life (/student-life)
-│   ├── Co-curricular Clubs & Societies
-│   ├── Athletics & Sports Programs
-│   ├── Arts, Music & Cultural Troupes
-│   └── Student Leadership & Prefect Body
-├── Facilities (/facilities)
-│   ├── Science & Physics/Chemistry Laboratories
-│   ├── Modern Computer & ICT Center
-│   ├── School Library & Resource Center
-│   └── Sports Fields & Multipurpose Hall
-├── Leadership (/leadership)
-│   ├── School Board of Directors
-│   ├── Headteacher & Deputy Headteachers
-│   ├── Heads of Academic Departments
-│   └── Teaching Faculty & Support Staff
-├── News (/news)
-│   ├── Institutional Announcements
-│   ├── Academic Achievements & Awards
-│   └── Community Outreach
-├── Events (/events)
-│   ├── Upcoming School Calendar
-│   ├── Sports Days & Competitions
-│   └── Graduation & Parents' Meetings
-├── Gallery (/gallery)
+│   ├── Headmaster Welcoming Address (HABUMUGISHA Ernest)
+│   └── School Leadership Board
+├── Gallery (/gallery) [READY]
 │   ├── Campus & Infrastructure
-│   ├── Student Activities
-│   ├── Cultural Celebrations
-│   └── Graduation & Award Ceremonies
-├── Careers (/careers)
-│   ├── Teaching Vacancies
-│   ├── Administrative Openings
-│   └── Application Process
-├── FAQs (/faq)
-│   ├── General Inquiries
-│   ├── Admission & Registration
-│   └── Academics & Student Welfare
-└── Contact (/contact)
-    ├── Campus Location Map & Address (Rubavu District)
-    ├── Direct Phone & Email Directory
-    ├── Inquiry Submission Form
-    └── Campus Tour Scheduling
+│   ├── Student Activities & Peeping Student Visual
+│   ├── Categorized Media Showcase (All, School Life, Events, Academics, Sports)
+│   └── Interactive Card Feedback
+├── Academics (/academics) [COMING SOON]
+├── Admissions (/admissions) [COMING SOON]
+├── Student Life (/student-life) [COMING SOON]
+├── Facilities (/facilities) [COMING SOON]
+├── Leadership (/leadership) [COMING SOON]
+├── News (/news) [COMING SOON]
+├── Careers (/careers) [COMING SOON]
+├── FAQs (/faq) [COMING SOON]
+└── Contact (/contact) [COMING SOON]
 ```

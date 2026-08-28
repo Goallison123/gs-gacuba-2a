@@ -5,7 +5,7 @@ import { Textarea } from '../ui/Textarea.js';
 import { Button } from '../ui/Button.js';
 import { Alert } from '../ui/Alert.js';
 import { postData } from '../../lib/apiClient.js';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({

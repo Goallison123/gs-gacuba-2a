@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600&display=swap');
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+@theme {
+  --color-primary: #ff8c00;
+  --color-navy: #211f54;
+  --color-navy-dark: #19213d;
+  --color-muted: #6d758f;
+  --color-slate: #353e5c;
+  --color-sand: #c3b091;
+}

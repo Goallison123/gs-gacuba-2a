@@ -108,6 +108,6 @@ export interface TestimonialItem {
   id: string;
   quote: string;
   author: string;
-  relation: string; // e.g. "Parent of S3 Student", "Alumnus (Class of 2023)"
+  relation: string;
   avatarUrl?: string;
 }

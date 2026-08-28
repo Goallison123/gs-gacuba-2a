@@ -12,7 +12,6 @@ export interface HeroSectionProps {
 export function HeroSection({ onNavigate, onOpenAdmissionModal }: HeroSectionProps) {
   return (
     <div className="relative bg-[#211f54] text-white min-h-[620px] lg:min-h-[680px] flex items-center overflow-hidden">
-      {/* Background Graphic / Campus Imagery with Dark Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-25 scale-105 transition-transform duration-1000"
         style={{ backgroundImage: `url('/assets/e0d1a.png')` }}
@@ -20,13 +19,11 @@ export function HeroSection({ onNavigate, onOpenAdmissionModal }: HeroSectionPro
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#19213d] via-[#211f54]/95 to-[#211f54]/80" />
 
-      {/* Decorative subtle backdrop elements */}
       <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#ff8c00]/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#c3b091]/10 blur-3xl pointer-events-none" />
 
       <Container className="relative z-10 py-16 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Hero Copy & Actions */}
           <div className="lg:col-span-7 space-y-6">
             <div className="flex flex-wrap items-center gap-2">
               <Badge variant="sand">Rubavu, Rwanda</Badge>
@@ -44,7 +41,6 @@ export function HeroSection({ onNavigate, onOpenAdmissionModal }: HeroSectionPro
               Welcome to <strong>Groupe Scolaire Gacuba II A</strong>. We empower ambitious young scholars through rigorous science combinations, humanities, competitive sports, and traditional Rwandan cultural values.
             </p>
 
-            {/* Action Buttons */}
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Button
                 variant="primary"
@@ -67,7 +63,6 @@ export function HeroSection({ onNavigate, onOpenAdmissionModal }: HeroSectionPro
               </Button>
             </div>
 
-            {/* Trust Badges */}
             <div className="pt-6 border-t border-white/15 grid grid-cols-2 sm:grid-cols-3 gap-4">
               <div className="flex items-center gap-2.5">
                 <ShieldCheck className="w-5 h-5 text-[#ff8c00] shrink-0" />
@@ -84,10 +79,8 @@ export function HeroSection({ onNavigate, onOpenAdmissionModal }: HeroSectionPro
             </div>
           </div>
 
-          {/* Right Column: Visual Composite Card */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Primary Image Frame */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 bg-gray-900 aspect-4/3">
                 <img
                   src="/assets/046d0.png"
@@ -106,7 +99,6 @@ export function HeroSection({ onNavigate, onOpenAdmissionModal }: HeroSectionPro
                 </div>
               </div>
 
-              {/* Floating Stat Badge */}
               <div className="absolute -bottom-6 -left-6 bg-white text-[#211f54] p-4 rounded-xl shadow-xl border border-gray-100 hidden sm:flex items-center gap-3">
                 <div className="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-[#ff8c00] font-black text-xl">
                   98%
@@ -117,7 +109,6 @@ export function HeroSection({ onNavigate, onOpenAdmissionModal }: HeroSectionPro
                 </div>
               </div>
 
-              {/* Floating Badge Top Right */}
               <div className="absolute -top-4 -right-4 bg-[#ff8c00] text-white px-3.5 py-2 rounded-xl shadow-lg font-bold text-xs flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4" />
                 <span>Modern 50-Seat ICT Hub</span>

@@ -1,26 +1,20 @@
 import Footer from "../components/Footer";
+import { ArrowRight, Phone, Check } from "lucide-react";
 
 const imgHeroStudent = "/assets/3421d.png";
-const imgAv1 = "/assets/4b47b.png";
-const imgAv2 = "/assets/ee951.png";
-const imgAv3 = "/assets/e6662.png";
-const imgAv4 = "/assets/a5c21.png";
-const imgCtaRightImg = "/assets/b5865.png";
+const imgHeroBg = "/assets/e0d1a.png";
 const imgWhyPhoto = "/assets/1c7aa.png";
-const imgStudentPhoto = "/assets/07117.png";
-const imgStudentPhoto1 = "/assets/017b1.png";
-const imgStudentPhoto2 = "/assets/ef51e.png";
+const imgCtaRightImg = "/assets/b5865.png";
+const imgStudentPhoto1 = "/assets/ef51e.png";
+const imgStudentPhoto2 = "/assets/07117.png";
+const imgStudentPhoto3 = "/assets/017b1.png";
+
 const iconCalculator = "/assets/afb13.svg";
 const iconBook = "/assets/c4a68.svg";
 const iconLayers = "/assets/db130.svg";
-const iconArrowRight = "/assets/6c830.svg";
 const iconUsers = "/assets/c9358.svg";
 const iconHelp = "/assets/e3d67.svg";
 const iconStatWrap = "/assets/ac42c.svg";
-const iconCtaDeco1 = "/assets/89f2a.svg";
-const iconCtaDeco2 = "/assets/ce5f6.svg";
-const iconCheck = "/assets/f6f5a.svg";
-const iconArrowOrange = "/assets/035ba.svg";
 
 const streams = [
   {
@@ -28,23 +22,26 @@ const streams = [
     iconBg: "#fff3e0",
     title: "MS2",
     desc: "A level learning pathway focusing on Mathematics, Economics, Geography, and Physics.",
+    linkId: "academics",
   },
   {
     icon: iconBook,
     iconBg: "#e8f4fd",
-    title: "Arts and Humanities",
-    desc: "Upper secondary (A-Level) learning pathway focusing on History, Literature in English, Geography, and Psychology.",
+    title: "Arts and humanities",
+    desc: "Upper secondary (A-Level) learning pathway focusing on core social subjects like History, Literature in English, Geography, and Psychology.",
+    linkId: "academics",
   },
   {
     icon: iconLayers,
     iconBg: "#f0fdf4",
     title: "Ordinary Level",
-    desc: "Three-year lower secondary education cycle (Senior 1–3) with a competence-based core curriculum concluding with national examinations.",
+    desc: "Three-year lower secondary education cycle (Senior 1 to Senior 3) that provides a competence-based core curriculum concluding with national examinations.",
+    linkId: "academics",
   },
 ];
 
 const checks = [
-  "Regular, morning and evening guided self-study.",
+  "Regular, morning and  evening guided self-study.",
   "Quizzing beyond books so students learn outside pages.",
   "Clear attendance control and parent communication.",
   "Modern ICT tools and lab facilitating modern education.",
@@ -52,139 +49,231 @@ const checks = [
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
+  onOpenAdmission?: () => void;
+  onOpenAsk?: () => void;
 }
 
-export default function HomePage({ onNavigate }: HomePageProps) {
+export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: HomePageProps) {
+  function handleAdmission() {
+    if (onOpenAdmission) {
+      onOpenAdmission();
+    } else {
+      onNavigate("admissions");
+    }
+  }
+
+  function handleAsk() {
+    if (onOpenAsk) {
+      onOpenAsk();
+    } else {
+      onNavigate("contact");
+    }
+  }
+
   return (
-    <div className="bg-white">
-      {/* Hero */}
-      <section className="bg-[#ff8c00] relative overflow-hidden min-h-[580px] lg:min-h-[720px]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[167px] py-16 lg:py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-2">
-                <h1 className="font-extrabold text-[#211f54] text-4xl sm:text-5xl lg:text-[56px] leading-[1.14] uppercase">
-                  Shaping the Leaders and Thinkers of Tomorrow
-                </h1>
-              </div>
-              <p className="text-[#353e5c] text-base lg:text-[17px] leading-[28px] max-w-[480px]">
-                Welcome to GS Gacuba II A, providing a foundation of academic excellence in Rubavu across Ordinary Level and advanced MS2 and Arts and Humanities streams.
+    <div className="bg-white min-h-screen flex flex-col">
+      {/* 1. Hero Section */}
+      <section className="relative bg-gradient-to-r from-[#e87500] via-[#f58220] to-[#e67500] overflow-hidden min-h-[480px] lg:min-h-[530px] flex items-end">
+        {/* School Building Photo Background with warm color overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-multiply pointer-events-none"
+          style={{ backgroundImage: `url(${imgHeroBg})` }}
+        />
+
+        {/* Decorative Wave/Curved Contour Lines in Background matching Screenshot 1 */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 600"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M-100,50 C300,10 700,120 1100,30 C1300,-15 1500,80 1600,150"
+            fill="none"
+            stroke="#ffd599"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M-100,120 C320,80 720,180 1120,90 C1320,45 1520,140 1600,210"
+            fill="none"
+            stroke="#ffd599"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M-100,190 C340,150 740,240 1140,150 C1340,105 1540,200 1600,270"
+            fill="none"
+            stroke="#ffd599"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M-100,260 C360,220 760,300 1160,210 C1360,165 1560,260 1600,330"
+            fill="none"
+            stroke="#ffd599"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M-100,330 C380,290 780,360 1180,270 C1380,225 1580,320 1600,390"
+            fill="none"
+            stroke="#ffd599"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M-100,400 C400,360 800,420 1200,330 C1400,285 1600,380 1600,450"
+            fill="none"
+            stroke="#ffd599"
+            strokeWidth="1.5"
+          />
+        </svg>
+
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 sm:pt-12 lg:pt-16 pb-0 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
+            {/* Left Column: Hero Text & Callouts */}
+            <div className="lg:col-span-7 flex flex-col gap-5 pb-8 sm:pb-12">
+              <h1 className="font-extrabold text-[#1e244b] text-3xl sm:text-4xl lg:text-[46px] leading-[1.12] tracking-tight">
+                Shaping the leaders<br />
+                and thinkers of<br />
+                <span className="text-white">tomorrow</span>
+              </h1>
+
+              <p className="text-white text-xs sm:text-sm lg:text-[14px] leading-relaxed max-w-lg font-normal opacity-95">
+                Welcome to GS Gacuba II A, providing a foundation of academic excellence in Rubavu across Ordinary Level and advanced MPC &amp; HGL streams (Now MS2 and Arts and Humanities).
               </p>
 
-              {/* Social proof */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center">
-                  {[imgAv1, imgAv2, imgAv3, imgAv4].map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt=""
-                      className="size-10 rounded-full border-2 border-[#ff8c00] object-cover"
-                      style={{ marginLeft: i > 0 ? "-10px" : "0" }}
-                    />
-                  ))}
+              {/* Phone CTA Component - Clean circle icon with white text on hero background */}
+              <div className="flex items-center gap-3 pt-1">
+                <div className="w-10 h-10 rounded-full bg-[#ff8c00] border border-white/30 flex items-center justify-center text-white shrink-0 shadow-xs">
+                  <Phone className="w-4 h-4" />
                 </div>
-                <div className="flex flex-col gap-0.5">
-                  <p className="font-bold text-[#211f54] text-[15px]">800+ Students</p>
-                  <p className="text-[#353e5c] text-[13px]">Currently enrolled</p>
+                <div className="flex flex-col">
+                  <span className="text-[11px] text-white/90 font-medium">
+                    Call us anytime
+                  </span>
+                  <a
+                    href="tel:+250788000000"
+                    className="text-sm sm:text-base font-bold text-white tracking-wide hover:underline"
+                  >
+                    +250 788 000 000
+                  </a>
                 </div>
               </div>
 
-              {/* Buttons */}
-              <div className="flex flex-wrap gap-4 items-center">
+              {/* Action Buttons: Apply for admission & Ask about us */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
-                  onClick={() => onNavigate("admissions")}
-                  className="bg-[#c3b091] text-white font-semibold text-sm px-[18px] py-3.5 rounded-md hover:bg-[#b09d7e] transition-colors shadow-sm cursor-pointer"
+                  onClick={handleAdmission}
+                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs flex items-center gap-1.5 cursor-pointer transition-colors"
                 >
-                  Apply for Admission
+                  <span>Apply for admission</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
+
                 <button
-                  onClick={() => onNavigate("academics")}
-                  className="bg-[#f8faff] border border-[#e1e4ed] text-[#6d758f] font-semibold text-sm px-[18px] py-3.5 rounded-md hover:bg-white transition-colors cursor-pointer"
+                  onClick={handleAsk}
+                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs border border-white/25 cursor-pointer transition-colors"
                 >
-                  Explore our Streams
+                  Ask about us
                 </button>
               </div>
             </div>
 
-            {/* Hero image */}
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[560px] aspect-square lg:aspect-auto lg:h-[560px]">
-                <img
-                  src={imgHeroStudent}
-                  alt="Student at GS Gacuba II A"
-                  className="w-full h-full object-cover object-top rounded-2xl"
-                />
-                {/* Floating badge */}
-                <div className="absolute top-10 right-0 bg-white rounded-2xl px-5 py-4 shadow-[0px_8px_12px_rgba(25,33,61,0.19)] flex flex-col gap-1">
-                  <p className="font-extrabold text-[#ff8c00] text-2xl leading-none">95%+</p>
-                  <p className="font-medium text-[#6d758f] text-xs">Success Rate</p>
-                </div>
+            {/* Right Column: Student Cutout Photo (Integrated directly into Hero, NO glass card) */}
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end">
+              <img
+                src={imgHeroStudent}
+                alt="GS Gacuba II A Student"
+                className="max-h-[380px] sm:max-h-[440px] lg:max-h-[490px] w-auto object-contain object-bottom block z-10 select-none"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Stats Bar (Dark Navy #1e244b) */}
+      <section className="bg-[#1e244b] text-white py-4 sm:py-5 border-t border-white/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
+            {/* Stat 1 */}
+            <div className="flex items-center gap-4 py-3 sm:py-2 sm:px-6 first:pl-0">
+              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <img src={iconUsers} alt="" className="w-5 h-5 object-contain brightness-0 invert" />
+              </div>
+              <div>
+                <p className="text-xl sm:text-2xl font-black text-white leading-none">800+</p>
+                <p className="text-xs text-gray-300 font-medium mt-1">Students Enrolled</p>
+              </div>
+            </div>
+
+            {/* Stat 2 */}
+            <div className="flex items-center gap-4 py-3 sm:py-2 sm:px-6">
+              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <img src={iconHelp} alt="" className="w-5 h-5 object-contain brightness-0 invert" />
+              </div>
+              <div>
+                <p className="text-xl sm:text-2xl font-black text-white leading-none">NESA</p>
+                <p className="text-xs text-gray-300 font-medium mt-1">Accreditation</p>
+              </div>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="flex items-center gap-4 py-3 sm:py-2 sm:px-6 last:pr-0">
+              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <img src={iconStatWrap} alt="" className="w-5 h-5 object-contain brightness-0 invert" />
+              </div>
+              <div>
+                <p className="text-xl sm:text-2xl font-black text-white leading-none">23</p>
+                <p className="text-xs text-gray-300 font-medium mt-1">Staff</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="bg-[#211f54]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[167px]">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center divide-y sm:divide-y-0 sm:divide-x divide-white/15">
-            {[
-              { icon: iconUsers, value: "800+", label: "Students Enrolled" },
-              { icon: iconHelp, value: "NESA", label: "Accreditation" },
-              { icon: iconStatWrap, value: "23", label: "Staff" },
-            ].map(({ icon, value, label }) => (
-              <div key={label} className="flex gap-4 items-center px-0 sm:px-10 py-8 first:pl-0 last:pr-0 w-full sm:w-auto">
-                <div className="bg-white/10 rounded-xl size-12 flex items-center justify-center shrink-0">
-                  <img src={icon} alt="" className="size-6" />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <p className="font-extrabold text-white text-2xl leading-none">{value}</p>
-                  <p className="text-[#b4b9c9] text-[13px]">{label}</p>
-                </div>
+      {/* 3. Streams Section */}
+      <section className="bg-white py-14 lg:py-16">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+          {/* Header row */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[#ff8c00] font-bold">—</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#ff8c00]">
+                  EXLORE OUR SCHOOL
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Streams */}
-      <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[167px]">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-2">
-                <div className="bg-[#ff8c00] h-[3px] w-5 rounded-full" />
-                <p className="text-[#ff8c00] text-[13px] font-bold uppercase tracking-[1.04px]">Explore Our School</p>
-              </div>
-              <h2 className="font-extrabold text-[#211f54] text-3xl lg:text-[36px] leading-[44px]">Streams</h2>
+              <h2 className="text-2xl sm:text-3xl font-black text-[#1e244b]">Streams</h2>
             </div>
             <button
               onClick={() => onNavigate("academics")}
-              className="flex items-center gap-1.5 text-[#ff8c00] text-sm font-semibold hover:underline cursor-pointer"
+              className="text-[#ff8c00] hover:text-[#e07b00] text-xs sm:text-sm font-bold flex items-center gap-1 self-start sm:self-auto cursor-pointer"
             >
-              View levels and streams details
-              <img src={iconArrowOrange} alt="" className="size-4" />
+              <span>view levels and streams details</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {streams.map(({ icon, iconBg, title, desc }) => (
+          {/* 3 Stream Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {streams.map((stream) => (
               <div
-                key={title}
-                className="bg-white border border-[#e1e4ed] rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow"
+                key={stream.title}
+                className="bg-white border border-[#e5e7eb] rounded-xl p-5 sm:p-6 flex flex-col justify-between hover:shadow-md transition-all duration-200 group"
               >
-                <div className="rounded-xl size-12 flex items-center justify-center shrink-0" style={{ backgroundColor: iconBg }}>
-                  <img src={icon} alt="" className="size-6" />
+                <div>
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 shrink-0"
+                    style={{ backgroundColor: stream.iconBg }}
+                  >
+                    <img src={stream.icon} alt="" className="w-5 h-5 object-contain" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#1e244b] mb-2">{stream.title}</h3>
+                  <p className="text-xs text-[#6d758f] leading-relaxed mb-6">{stream.desc}</p>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <p className="font-bold text-[#211f54] text-[15px]">{title}</p>
-                  <p className="text-[#6d758f] text-[13px] leading-5">{desc}</p>
-                </div>
-                <button className="flex items-center gap-1 text-[#ff8c00] text-[13px] font-semibold mt-auto hover:underline cursor-pointer">
-                  Learn More
-                  <img src={iconArrowRight} alt="" className="size-3.5" />
+                <button
+                  onClick={() => onNavigate(stream.linkId)}
+                  className="text-[#ff8c00] group-hover:text-[#e07b00] text-xs font-bold flex items-center gap-1 self-start transition-colors cursor-pointer"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </div>
             ))}
@@ -192,132 +281,173 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="bg-[#f8faff] py-16 lg:py-20">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[167px]">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[445px]">
-              <img src={imgWhyPhoto} alt="Students learning" className="w-full h-full object-cover" />
+      {/* 4. Why Choose Us Section */}
+      <section className="bg-white py-14 lg:py-16 border-t border-gray-100">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Column: Image with Students working on laptop */}
+            <div className="lg:col-span-6">
+              <div className="rounded-2xl overflow-hidden shadow-md bg-gray-100 aspect-[4/3] max-h-[400px]">
+                <img
+                  src={imgWhyPhoto}
+                  alt="GS Gacuba II A Students collaborating with laptop"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
-            <div className="flex flex-col gap-7">
-              <div className="flex items-center gap-2">
-                <div className="bg-[#ff8c00] h-[3px] w-5 rounded-full" />
-                <p className="text-[#ff8c00] text-[13px] font-bold uppercase tracking-[1.04px]">Why Choose Us</p>
+            {/* Right Column: Why Choose Us Content */}
+            <div className="lg:col-span-6 space-y-5">
+              <div>
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-[#ff8c00] font-bold">—</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff8c00]">
+                    WHY CHOOSE US
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-[#1e244b] leading-tight">
+                  We Don&apos;t Just Teach, We<br />Build Futures
+                </h2>
               </div>
-              <h2 className="font-extrabold text-[#211f54] text-3xl lg:text-[36px] leading-[44px]">
-                We Don&apos;t Just Teach,<br />We Build Futures
-              </h2>
-              <p className="text-[#6d758f] text-base leading-[26px]">
+
+              <p className="text-[#6d758f] text-xs sm:text-sm leading-relaxed max-w-lg">
                 At GS Gacuba II A, we believe every student is unique. Our school environment, methodologies and result-oriented approach help students achieve their dreams in Rubavu and beyond.
               </p>
 
-              <div className="flex flex-col gap-4">
+              {/* 4 Bullet Points */}
+              <div className="space-y-3 pt-1">
                 {checks.map((text) => (
-                  <div key={text} className="flex gap-3 items-center">
-                    <div className="bg-[#ff8c00] rounded-xl size-6 flex items-center justify-center shrink-0">
-                      <img src={iconCheck} alt="" className="size-3" />
+                  <div key={text} className="flex items-start gap-2.5">
+                    <div className="w-5 h-5 rounded-full bg-[#ff8c00] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                      <Check className="w-3 h-3 stroke-[3]" />
                     </div>
-                    <p className="text-[#353e5c] text-[15px] font-semibold">{text}</p>
+                    <span className="text-xs sm:text-[13px] font-medium text-[#1e244b]">
+                      {text}
+                    </span>
                   </div>
                 ))}
               </div>
 
-              <button
-                onClick={() => onNavigate("about")}
-                className="self-start bg-[#6d758f] text-white font-semibold text-sm px-[18px] py-3.5 rounded-md hover:bg-[#5a6278] transition-colors shadow-sm cursor-pointer"
-              >
-                Know More About Us
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#ff8c00] to-[#353e5c]" />
-        <div className="absolute -left-20 -top-20 size-80 opacity-20">
-          <img src={iconCtaDeco1} alt="" className="w-full h-full" />
-        </div>
-        <div className="absolute right-40 top-10 size-60 opacity-20">
-          <img src={iconCtaDeco2} alt="" className="w-full h-full" />
-        </div>
-        <div className="absolute right-0 inset-y-0 w-[440px] opacity-25 hidden lg:block">
-          <img src={imgCtaRightImg} alt="" className="w-full h-full object-cover" />
-        </div>
-
-        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[167px] py-16 lg:py-20">
-          <div className="max-w-[700px] flex flex-col gap-6">
-            <h2 className="font-extrabold text-white text-3xl lg:text-[40px] leading-[50px]">
-              You were never late, you just hesitated!
-            </h2>
-            <p className="text-white/80 text-base lg:text-[17px] leading-[28px]">
-              Tired of boarding stresses? Expensive schools, academically unstable schools? Need a school that cares about your vision?
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={() => onNavigate("admissions")}
-                className="bg-white text-[#ff8c00] font-semibold text-sm px-[18px] py-3.5 rounded-md hover:bg-gray-50 transition-colors shadow-sm cursor-pointer"
-              >
-                Apply for Admission
-              </button>
-              <button
-                onClick={() => onNavigate("contact")}
-                className="bg-white/10 border border-white/30 text-white font-semibold text-sm px-5 py-3.5 rounded-md hover:bg-white/20 transition-colors cursor-pointer"
-              >
-                Ask About Us
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Best Performing Students / Testimonials */}
-      <section className="bg-[#ff8c00] py-16 lg:py-20">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[167px]">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <div className="bg-white h-[3px] w-5 rounded-full" />
-                <p className="text-white text-[13px] font-bold uppercase tracking-[1.04px]">Success Should Be Recognized</p>
-                <div className="bg-white h-[3px] w-5 rounded-full" />
+              {/* Action Button */}
+              <div className="pt-2">
+                <button
+                  onClick={() => onNavigate("about")}
+                  className="bg-[#5a6278] hover:bg-[#1e244b] text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-md shadow-xs transition-colors cursor-pointer"
+                >
+                  Know More About Us
+                </button>
               </div>
-              <h2 className="font-extrabold text-[#211f54] text-3xl lg:text-[36px] leading-[44px]">
-                Best Performing Students
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Orange CTA Banner Section: "You were never late, you just hesitated!" */}
+      <section className="bg-[#ff8c00] relative overflow-hidden py-10 lg:py-12">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 text-white space-y-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-black leading-tight">
+                You were never late,<br />you just hesitated!
               </h2>
+              <p className="text-white/95 text-xs sm:text-sm leading-relaxed max-w-md font-normal">
+                Tired of boarding stresses? Expensive schools, academically unstable schools? Need a school that  cares about your vision?
+              </p>
 
-              <div className="flex flex-col gap-4 mt-4">
-                {/* Testimonial card 1 */}
-                <div className="bg-white rounded-2xl p-5 shadow-md flex items-center gap-4">
-                  <img src={imgStudentPhoto2} alt="Amina Uwase" className="size-12 rounded-full object-cover shrink-0" />
-                  <div>
-                    <p className="font-bold text-[#211f54] text-[14px]">Amina Uwase</p>
-                    <p className="text-[#6d758f] text-[12px]">MS2 Stream, GS Gacuba II A</p>
-                  </div>
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <button
+                  onClick={handleAdmission}
+                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs transition-colors flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>Apply for admission</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={handleAsk}
+                  className="bg-[#e67500] hover:bg-[#cc6600] text-white font-bold text-xs sm:text-[13px] px-5 py-2.5 rounded-md shadow-xs border border-white/20 transition-colors cursor-pointer"
+                >
+                  Ask about us
+                </button>
+              </div>
+            </div>
+
+            {/* Right Photo */}
+            <div className="lg:col-span-5 hidden lg:block">
+              <div className="rounded-xl overflow-hidden shadow-lg aspect-[16/10] relative">
+                <img
+                  src={imgCtaRightImg}
+                  alt="GS Gacuba Classroom Study"
+                  className="w-full h-full object-cover brightness-90"
+                />
+                <div className="absolute inset-0 bg-[#ff8c00]/20 mix-blend-multiply pointer-events-none" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Best Performing Students Section */}
+      <section className="bg-white py-14 lg:py-16">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Column: Heading */}
+            <div className="lg:col-span-4">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[#ff8c00] font-bold">—</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#ff8c00]">
+                  SUCCESS SHOULD BE RECOGNIZED
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-[#1e244b]">
+                Best performing students
+              </h2>
+            </div>
+
+            {/* Middle Column: 2 Student Cards Stacked Vertically */}
+            <div className="lg:col-span-4 flex flex-col gap-3.5">
+              {/* Card 1 */}
+              <div className="bg-white border border-gray-200 rounded-xl p-3.5 flex items-center gap-3.5 shadow-xs">
+                <img
+                  src={imgStudentPhoto1}
+                  alt="Amina Uwase"
+                  className="w-11 h-11 rounded-full object-cover border-2 border-emerald-500 shrink-0"
+                />
+                <div>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#1e244b]">Amina Uwase</h4>
+                  <p className="text-[11px] text-[#6d758f]">MPC Stream, GS Gacuba II A</p>
                 </div>
-                {/* Testimonial card 2 */}
-                <div className="bg-white rounded-2xl p-5 shadow-md flex items-center gap-4">
-                  <img src={imgStudentPhoto} alt="Grace Mukamana" className="size-12 rounded-full object-cover shrink-0" />
-                  <div>
-                    <p className="font-bold text-[#211f54] text-[14px]">Grace Mukamana</p>
-                    <p className="text-[#6d758f] text-[12px]">Ordinary Level, GS Gacuba II A</p>
-                  </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-white border border-gray-200 rounded-xl p-3.5 flex items-center gap-3.5 shadow-xs">
+                <img
+                  src={imgStudentPhoto2}
+                  alt="Grace Mukamana"
+                  className="w-11 h-11 rounded-full object-cover border-2 border-blue-500 shrink-0"
+                />
+                <div>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#1e244b]">Grace Mukamana</h4>
+                  <p className="text-[11px] text-[#6d758f]">Ordinary Level, GS Gacuba II A</p>
                 </div>
               </div>
             </div>
 
-            {/* Featured testimonial */}
-            <div className="bg-[#ff8c00] border border-white/30 rounded-2xl p-8 shadow-[0px_8px_24px_rgba(255,140,0,0.19)] relative overflow-hidden">
-              <div className="absolute top-0 right-0 size-24 bg-white/10 rounded-bl-[80px]" />
-              <p className="text-white text-base lg:text-[17px] leading-[28px] mb-8 relative z-10">
+            {/* Right Column: Featured Big Orange Quote Card */}
+            <div className="lg:col-span-4 bg-[#ff8c00] text-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-md">
+              <blockquote className="text-xs sm:text-sm font-medium text-white leading-relaxed mb-6">
                 &ldquo;With big dreams and daily effort, even the smallest steps can lead to the highest success.&rdquo;
-              </p>
-              <div className="flex items-center gap-3 relative z-10">
-                <img src={imgStudentPhoto1} alt="Jean Paul Habimana" className="size-12 rounded-full object-cover border-2 border-white/50" />
+              </blockquote>
+
+              <div className="flex items-center gap-3">
+                <img
+                  src={imgStudentPhoto3}
+                  alt="Jean Paul Habimana"
+                  className="w-10 h-10 rounded-full object-cover border border-white/50 shrink-0"
+                />
                 <div>
-                  <p className="font-bold text-white text-[14px]">Jean Paul Habimana</p>
-                  <p className="text-white/60 text-[12px]">MS2, GS Gacuba II A</p>
+                  <h4 className="font-bold text-xs sm:text-sm text-white">Jean Paul Habimana</h4>
+                  <p className="text-[11px] text-white/85">MS2, GS Gacuba II A</p>
                 </div>
               </div>
             </div>
@@ -325,25 +455,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Ready to Join CTA */}
-      <section className="bg-[#ff8c00] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#211f54]/80" />
-        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[167px] py-20 text-center">
-          <h2 className="font-extrabold text-[#6d758f] text-4xl lg:text-5xl leading-[1.2] mb-4">
-            Ready to join us?
-          </h2>
-          <p className="text-white text-base lg:text-[16px] leading-[24px] mb-8 max-w-md mx-auto">
-            Grow your potential and learn to lead.
-          </p>
-          <button
-            onClick={() => onNavigate("admissions")}
-            className="bg-[#c3b091] text-white font-semibold text-sm px-6 py-3.5 rounded-xl hover:bg-[#b09d7e] transition-colors cursor-pointer"
-          >
-            Register today
-          </button>
-        </div>
-      </section>
-
+      {/* Footer */}
       <Footer onNavigate={onNavigate} />
     </div>
   );

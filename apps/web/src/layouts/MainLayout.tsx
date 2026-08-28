@@ -17,23 +17,15 @@ export function MainLayout({ currentPage, onNavigate, children }: MainLayoutProp
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#353e5c] antialiased selection:bg-[#ff8c00] selection:text-white">
-      {/* Informational TopBar */}
       <TopBar />
-
-      {/* Main Navigation Header */}
       <Header
         currentPage={currentPage}
         onNavigate={onNavigate}
         onOpenAdmissionModal={() => setAdmissionModalOpen(true)}
       />
-
-      {/* Page Body */}
       <main className="flex-1 w-full">{children}</main>
-
-      {/* Footer */}
       <Footer onNavigate={onNavigate} />
 
-      {/* Global Admission Application Modal */}
       <Modal
         isOpen={admissionModalOpen}
         onClose={() => setAdmissionModalOpen(false)}

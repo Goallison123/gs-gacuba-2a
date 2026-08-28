@@ -1,43 +1,27 @@
-# Frontend Architecture (`apps/web`)
+# Frontend Architecture (`src` / `apps/web`)
 
 ## 1. Overview
-The frontend is a high-performance React 19 Single Page Application bundled with Vite and styled via Tailwind CSS.
+The frontend is a high-performance React Single Page Application bundled with Vite and styled via Tailwind CSS.
 
-## 2. Directory Map
+## 2. Page Architecture & Routing State
+- **Active Core Pages**:
+  - `HomePage` (`src/pages/HomePage.tsx`)
+  - `AboutPage` (`src/pages/AboutPage.tsx`)
+  - `GalleryPage` (`src/pages/GalleryPage.tsx`)
+- **Upcoming Routes**:
+  - `ComingSoonPage` (`src/pages/ComingSoonPage.tsx`) — Serves `news`, `academics`, `admissions`, `student-life`, `facilities`, `leadership`, `careers`, `faq`, and `contact` with a clean status card and direct CTAs.
+
+## 3. Interactive Modals & Communication
+- `ContactModal` (`src/components/ContactModal.tsx`): Direct administrative inquiry modal triggered by the navigation bar "Ask" button and general contact prompts.
+- `AdmissionModal` (`src/components/AdmissionModal.tsx`): Multi-step digital enrollment application.
+- `UserProfileModal` (`src/components/UserProfileModal.tsx`): Student and parent portal for application tracking and school resources.
+
+## 4. Component Structure
 ```text
-apps/web/src/
-├── assets/          # Static asset definitions & vector paths
-├── components/      # Atomic UI building blocks
-│   ├── ui/          # Primitive components (Button, Input, Badge, Card, Modal, etc.)
-│   ├── navigation/  # Header, NavDropdown, MobileMenu, Breadcrumbs, QuickLinks
-│   ├── cards/       # ProgramCard, NewsCard, EventCard, StaffCard, FacilityCard
-│   ├── forms/       # AdmissionApplicationForm, ContactForm, NewsletterForm
-│   └── layout/      # Container, Section, TopBar, Footer, PageHero
-├── layouts/         # MainLayout (with Header & Footer), PageLayout
-├── pages/           # Dedicated route page components
-│   ├── Home/
-│   ├── About/
-│   ├── Academics/
-│   ├── Admissions/
-│   ├── StudentLife/
-│   ├── Facilities/
-│   ├── Leadership/
-│   ├── News/
-│   ├── Events/
-│   ├── Gallery/
-│   ├── Careers/
-│   ├── FAQ/
-│   └── Contact/
-├── sections/        # Homepage and deep-page composition sections
-├── hooks/           # Reusable hooks (useScrollPosition, useFormValidation, etc.)
-├── services/        # Frontend API consumer layer
-├── lib/             # Utility helpers & API client configuration
-├── types/           # Complete TypeScript interface definitions
-├── utils/           # String, date, and math formatters
-├── config/          # Site metadata and global constants
-└── data/            # Static dataset for school programs, staff, and facilities
+src/
+├── assets/          # Graphic assets, student cutouts, school crests
+├── components/      # UI components (Header, Footer, ContactModal, AdmissionModal, etc.)
+├── pages/           # HomePage, AboutPage, GalleryPage, ComingSoonPage
+├── types/           # Domain TypeScript schemas & interfaces
+└── data/            # School metrics, stream definitions, faculty data
 ```
-
-## 3. State Management & Navigation
-- Client-side navigation state with smooth scrolling to top and history updates.
-- Centralized form state with immediate visual feedback, validation errors, and success state alerts.

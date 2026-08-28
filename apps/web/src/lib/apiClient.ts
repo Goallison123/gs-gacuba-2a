@@ -16,7 +16,6 @@ export async function postData<TResponse, TPayload>(endpoint: string, payload: T
     }
     return (await res.json()) as TResponse;
   } catch (error: any) {
-    // Graceful offline fallback simulation if backend is unreachable
     console.warn(`[API Client Warning] Backend route ${url} unavailable, using simulated local response.`, error);
     return {
       success: true,

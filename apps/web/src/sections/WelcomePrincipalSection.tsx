@@ -10,7 +10,6 @@ export function WelcomePrincipalSection({ onNavigate }: { onNavigate: (page: Pag
     <Section variant="slate" padding="lg">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Principal Portrait & Frame */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-4/5 bg-gray-200">
@@ -36,7 +35,6 @@ export function WelcomePrincipalSection({ onNavigate }: { onNavigate: (page: Pag
             </div>
           </div>
 
-          {/* Welcome Text & Message */}
           <div className="lg:col-span-7 space-y-5">
             <div className="flex items-center gap-2">
               <Badge variant="navy">Principal's Address</Badge>

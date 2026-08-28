@@ -22,7 +22,6 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <div className="relative bg-[#211f54] text-white py-16 sm:py-20 overflow-hidden border-b border-white/10">
-      {/* Background with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-15"
         style={{ backgroundImage: `url(${backgroundImage})` }}

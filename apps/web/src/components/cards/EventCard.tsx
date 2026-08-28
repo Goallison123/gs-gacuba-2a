@@ -8,7 +8,6 @@ export interface EventCardProps {
 }
 
 export function EventCard({ event }: EventCardProps) {
-  // Parse date into Month & Day badge
   const dateParts = event.date.split(' ');
   const month = dateParts[0] || 'Term';
   const day = dateParts[1] ? dateParts[1].replace(',', '') : '15';
