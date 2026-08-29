@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import GalleryPage from "./pages/GalleryPage";
+import NewsPage from "./pages/NewsPage";
+import AcademicsPage from "./pages/AcademicsPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 import ContactModal from "./components/ContactModal";
 import AdmissionModal from "./components/AdmissionModal";
@@ -98,14 +100,34 @@ export default function App() {
           />
         )}
 
-        {activePage !== "home" && activePage !== "about" && activePage !== "gallery" && (
-          <ComingSoonPage
-            pageKey={activePage}
-            pageName={pageTitleMap[activePage] || "Page"}
+        {activePage === "news" && (
+          <NewsPage
             onNavigate={handleNavigate}
             onOpenAdmission={handleOpenAdmission}
+            onOpenAsk={handleOpenAsk}
           />
         )}
+
+        {activePage === "academics" && (
+          <AcademicsPage
+            onNavigate={handleNavigate}
+            onOpenAdmission={handleOpenAdmission}
+            onOpenAsk={handleOpenAsk}
+          />
+        )}
+
+        {activePage !== "home" &&
+          activePage !== "about" &&
+          activePage !== "gallery" &&
+          activePage !== "news" &&
+          activePage !== "academics" && (
+            <ComingSoonPage
+              pageKey={activePage}
+              pageName={pageTitleMap[activePage] || "Page"}
+              onNavigate={handleNavigate}
+              onOpenAdmission={handleOpenAdmission}
+            />
+          )}
       </main>
 
       {/* Instant Spotlight / Search Modal */}

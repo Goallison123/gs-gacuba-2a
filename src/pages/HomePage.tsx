@@ -2,7 +2,7 @@ import Footer from "../components/Footer";
 import { ArrowRight, Phone, Check } from "lucide-react";
 
 const imgHeroStudent = "/assets/3421d.png";
-const imgHeroBg = "/assets/e0d1a.png";
+const imgHeroBg = "/assets/hero-image-overlay.jpeg";
 const imgWhyPhoto = "/assets/1c7aa.png";
 const imgCtaRightImg = "/assets/b5865.png";
 const imgStudentPhoto1 = "/assets/ef51e.png";
@@ -73,79 +73,37 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
   return (
     <div className="bg-white min-h-screen flex flex-col">
       {/* 1. Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#e87500] via-[#f58220] to-[#e67500] overflow-hidden flex items-end m-0 p-0">
-        {/* School Building Photo Background with warm color overlay */}
+      <section className="relative bg-[#e67a05] overflow-hidden flex items-end m-0 p-0 min-h-[520px] lg:min-h-[580px]">
+        {/* School Building Photo & Golden Wave Curves Overlay Background */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-multiply pointer-events-none"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none"
           style={{ backgroundImage: `url(${imgHeroBg})` }}
         />
 
-        {/* Decorative Wave/Curved Contour Lines in Background matching Screenshot 1 */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 600"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M-100,50 C300,10 700,120 1100,30 C1300,-15 1500,80 1600,150"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,120 C320,80 720,180 1120,90 C1320,45 1520,140 1600,210"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,190 C340,150 740,240 1140,150 C1340,105 1540,200 1600,270"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,260 C360,220 760,300 1160,210 C1360,165 1560,260 1600,330"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,330 C380,290 780,360 1180,270 C1380,225 1580,320 1600,390"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,400 C400,360 800,420 1200,330 C1400,285 1600,380 1600,450"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-        </svg>
+        {/* Ambient warm gradient overlay to guarantee perfect text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#ea7a02]/85 via-[#f28307]/60 to-transparent pointer-events-none" />
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 lg:pt-10 pb-0 relative z-10 w-full">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 sm:pt-10 lg:pt-12 pb-0 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
             {/* Left Column: Hero Text & Callouts */}
-            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 pb-6 sm:pb-12 text-left">
-              <h1 className="font-extrabold text-[#1e244b] text-2xl sm:text-4xl lg:text-[46px] leading-[1.15] tracking-tight">
+            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 pb-8 sm:pb-12 text-left">
+              <h1 className="font-black text-[#1a2044] text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-[1.12] tracking-tight">
                 Shaping the leaders<br />
                 and thinkers of<br />
                 <span className="text-white">tomorrow</span>
               </h1>
 
-              <p className="text-white text-xs sm:text-sm lg:text-[14px] leading-relaxed max-w-lg font-normal opacity-95">
+              <p className="text-white text-xs sm:text-sm lg:text-[14.5px] leading-relaxed max-w-lg font-medium drop-shadow-xs">
                 Welcome to GS Gacuba II A, providing a foundation of academic excellence in Rubavu across Ordinary Level and advanced MPC &amp; HGL streams (Now MS2 and Arts and Humanities).
               </p>
 
               {/* Phone CTA Component */}
-              <div className="flex items-center gap-3 pt-1">
-                <div className="w-10 h-10 rounded-full bg-[#ff8c00] border border-white/30 flex items-center justify-center text-white shrink-0 shadow-xs">
-                  <Phone className="w-4 h-4" />
+              <div className="flex items-center gap-3.5 pt-1">
+                <div className="w-12 h-12 rounded-2xl bg-[#ff8c00] border border-white/30 flex items-center justify-center text-white shrink-0 shadow-md">
+                  <Phone className="w-5 h-5 fill-white/20" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[11px] text-white/90 font-medium">
+                  <span className="text-[12px] text-white font-medium">
                     Call us anytime
                   </span>
                   <a
@@ -158,18 +116,17 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
                   onClick={handleAdmission}
-                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[42px] px-5 py-2.5 rounded-[4px] shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
-                  <span>Apply for admission</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>Apply for admission —</span>
                 </button>
 
                 <button
                   onClick={handleAsk}
-                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs border border-white/25 flex items-center justify-center cursor-pointer transition-colors"
+                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[42px] px-5 py-2.5 rounded-[4px] shadow-xs border border-white/20 flex items-center justify-center cursor-pointer transition-colors"
                 >
                   Ask about us
                 </button>
@@ -177,11 +134,11 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
             </div>
 
             {/* Right Column: Student Cutout Photo */}
-            <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end overflow-hidden max-h-[380px] sm:max-h-[500px] md:max-h-[620px] lg:max-h-[820px]">
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end overflow-hidden max-h-[380px] sm:max-h-[500px] md:max-h-[620px] lg:max-h-[700px]">
               <img
                 src={imgHeroStudent}
                 alt="GS Gacuba II A Student"
-                className="max-h-[380px] sm:max-h-[500px] md:max-h-[620px] lg:max-h-[820px] w-auto max-w-full object-contain object-bottom block z-10 select-none scale-105 sm:scale-110 lg:scale-120 origin-bottom"
+                className="max-h-[380px] sm:max-h-[500px] md:max-h-[600px] lg:max-h-[680px] w-auto max-w-full object-contain object-bottom block z-10 select-none scale-105 sm:scale-110 lg:scale-115 origin-bottom"
               />
             </div>
           </div>
@@ -194,7 +151,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
             {/* Stat 1 */}
             <div className="flex items-center gap-4 py-3 sm:py-2 sm:px-6 first:pl-0">
-              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#2b3563] flex items-center justify-center shrink-0">
                 <img src={iconUsers} alt="" className="w-5 h-5 object-contain brightness-0 invert" />
               </div>
               <div>
@@ -205,7 +162,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
 
             {/* Stat 2 */}
             <div className="flex items-center gap-4 py-3 sm:py-2 sm:px-6">
-              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#ff8c00] flex items-center justify-center shrink-0">
                 <img src={iconHelp} alt="" className="w-5 h-5 object-contain brightness-0 invert" />
               </div>
               <div>
@@ -216,7 +173,7 @@ export default function HomePage({ onNavigate, onOpenAdmission, onOpenAsk }: Hom
 
             {/* Stat 3 */}
             <div className="flex items-center gap-4 py-3 sm:py-2 sm:px-6 last:pr-0">
-              <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-[#2b3563] flex items-center justify-center shrink-0">
                 <img src={iconStatWrap} alt="" className="w-5 h-5 object-contain brightness-0 invert" />
               </div>
               <div>

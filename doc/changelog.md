@@ -2,6 +2,72 @@
 
 All notable changes to the GS Gacuba II A platform are documented in this file.
 
+## [3.1.0] - 2026-08-29
+### Added (Academics Page Implementation & Pathway Alignment)
+- **Split Hero Section**:
+  - Implemented the diagonal angular split banner with left vibrant orange gradient containing the `ACADEMICS` eyebrow, two-tone headline (*"Excellence in"* in white and *"every discipline"* in navy), description, and CTA buttons (*"Explore programs →"* and *"Curriculum overview"*).
+  - Positioned the real classroom photography (`/assets/c1786.png`) on the right with a clean geometric diagonal wedge slice.
+- **Our Academic Pathways Section**:
+  - Centered eyebrow (`— OUR ACADEMIC PATHWAYS`) and headline (*"Find the right path for your future"*).
+  - Segmented toggle between **Advanced level (A' Level)** and **Ordinary level (O' Level)**.
+  - **MS2 Card**: Features mathematics/science icon badge in soft orange, bold title, uppercase stream subtitle (*"MATHEMATICS, SCIENCES AND TECHNOLOGY"*), and rigorous pathway description.
+  - **Arts and Humanities Card**: Features book/languages icon badge in soft blue, bold title, uppercase stream subtitle (*"HUMANITIES, LANGUAGES AND SOCIAL SCIENCES"*), and career pathway description.
+- **Bottom Golden Orange CTA Banner**:
+  - Headline: *"Your future starts with the right foundation"*, subtitle, and action buttons (*"Apply for admissions →"* and *"Talk to admissions →"*).
+- **Navigation Integration**: Linked `AcademicsPage` seamlessly into application routing and navigation menus in `App.tsx`.
+
+## [3.0.0] - 2026-08-29
+### Added (News Page Implementation & Design Alignment)
+- **Top Announcement / Breaking Banner**:
+  - Implemented the full-width orange banner with the `"Latest"` white pill badge and the headline `"Our student awarded a 1st position in National exams 2026"`.
+- **Featured News Hero Section**:
+  - Structured the 2-column featured news layout with official certificate award ceremony image (`/assets/1c7aa.png`).
+  - Overlay action buttons: `"Apply for Admission →"` and `"Ask about us"`.
+  - Right details: `"Most liked"` badge with interactive Heart (like) and Share actions, bold headline (*"Kayla Elyse awarded the first position as the best performer in A’ level 2026"*), student narrative, and timestamp (`2 hours ago`).
+- **Category Filter Pills**:
+  - Implemented filter tabs (`All`, `School life`, `Events`, `Academics`, `Sports`) with active orange styling and outline pill buttons.
+- **News Cards Grid**:
+  - Created a 3-column responsive card grid featuring the Lenovo laptops delivery story with students photo (`/assets/b5865.png`).
+  - Interactive card footer with timestamp (`2 hours ago`), like counter (`2`), and share counter (`6`).
+- **Pagination & Navigation**:
+  - Added numeric pagination buttons (`1` in navy, `2`-`6` in orange-bordered buttons).
+  - Integrated `NewsPage` directly into application routing in `App.tsx`.
+
+## [2.9.0] - 2026-08-29
+### Enhanced (Clean Gallery Hero Layout & Even Content Distribution)
+- **Image Removal**: Removed the peeping children image and any artificial left-offset padding from the Gallery hero section as requested.
+- **Even Content Distribution**:
+  - Restructured the hero layout into a clean, balanced 2-column grid.
+  - Left column: Headline (`See it. Feel it. Live it.`), quote card, subtitle (`Get what you used to miss.`), and interactive CTA buttons.
+  - Right column: Centered "Visual Campus Tour" badge inside the curved orange backdrop.
+  - Gallery photo collection: Perfectly aligned with the container margins and interactive cards.
+
+## [2.8.0] - 2026-08-29
+### Enhanced (Peeping Children Asset & Gallery Showcase Alignment)
+- **Peeping Children Graphic Replacement**: Replaced the peeping student asset with the official cutout image (`/assets/peeping-children.png`), featuring the two children in blue caps peeping from the left edge.
+- **Visual & Typography Precision**:
+  - Aligned headline hierarchy (`See it. Feel it. Live it.`), quote card (`At Gacuba, success isn't optional, it's the routine.`), and subtitle (`Get what you used to miss.`).
+  - Refined the "Apply for Admission &rarr;" button in bright orange and "Ask about us" button with custom borders.
+  - Aligned gallery cards, reaction buttons (`Dislike` and `Like`), and pagination controls.
+### Enhanced (School Leadership Section Background & Layout Alignment)
+- **Leadership Background Integration**: Applied the official graphic artwork background (`/assets/team-section-background.jpg`) to the school leadership section, incorporating the golden wave contour mesh on the left and circular halftone dot matrix pattern on the right.
+- **Card Framing & Styling**:
+  - Implemented the 4 leadership portrait cards with slate/steel-blue upper portrait enclosures (`bg-[#5c647b]`) and the monochrome headmaster portrait.
+  - Formatted the lower badge container with clean white background, bold navy name (`HABUMUGISHA Ernest`), and purple role typography (`Headmaster`).
+- **Indicators & Action Controls**:
+  - Aligned the carousel indicator dots (active orange dot and white inactive dots).
+  - Centered the "Apply for admission —" and "Ask about us" buttons with precise padding and styling.
+
+## [2.6.0] - 2026-08-29
+### Enhanced (Exact Hero Section Alignment & Background Overlay Integration)
+- **Hero Background Overlay**: Replaced procedural SVG line paths with the official graphic overlay image (`/assets/hero-image-overlay.jpeg`), featuring the warm school building architecture and sweeping golden contour lines.
+- **Hero Typography & Visual Balance**:
+  - Aligned the headline, subtitle, and CTA layout with the exact visual specifications in the design reference.
+  - Formatted the "Call us anytime" card with a squircle phone icon badge and high-contrast typography.
+  - Refined the "Apply for admission —" and "Ask about us" buttons with rectangular framing.
+  - Aligned the student cutout photo against the bottom baseline and stats bar.
+  - Configured the dark navy stats bar with distinct icon container colors (`#2b3563` and `#ff8c00`).
+
 ## [2.5.0] - 2026-08-28
 ### Added & Enabled (Instant Multi-Category Search Engine & Spotlight)
 - **Instant Search Engine (`src/data/searchDatabase.ts`)**:

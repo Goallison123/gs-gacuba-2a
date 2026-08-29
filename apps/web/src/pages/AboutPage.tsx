@@ -1,9 +1,11 @@
+import { useState } from "react";
 import Footer from "../components/Footer";
 import { ArrowRight } from "lucide-react";
 
 const imgHeroStory = "/assets/c1786.png";
 const imgHeadmaster = "/assets/e9332.png";
 const imgCampus = "/assets/612da.png";
+const imgTeamBg = "/assets/team-section-background.jpg";
 
 const highlights = [
   "Science lab",
@@ -13,10 +15,10 @@ const highlights = [
 ];
 
 const leaders = [
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", featured: false },
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", featured: true },
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", featured: false },
-  { name: "HABUMUGISHA Ernest", role: "Headmaster", featured: false },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
+  { name: "HABUMUGISHA Ernest", role: "Headmaster" },
 ];
 
 interface AboutPageProps {
@@ -26,6 +28,7 @@ interface AboutPageProps {
 }
 
 export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: AboutPageProps) {
+  const [activeLeaderIndex, setActiveLeaderIndex] = useState(1);
   function handleAdmission() {
     if (onOpenAdmission) {
       onOpenAdmission();
@@ -44,139 +47,136 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      {/* Hero Section: "Shaping futures at GS Gacuba II A" */}
-      <section className="bg-gradient-to-r from-[#0c3f69] via-[#124b7a] to-[#1c5f94] text-white relative overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
-        {/* Curved orange ribbon / motif */}
+      {/* 1. Hero Section: Diagonal Split (Orange Left + Classroom Photo Right + Headmaster Overlay Card) */}
+      <section className="relative bg-[#ff8c00] overflow-hidden min-h-[460px] lg:min-h-[500px] flex items-center">
+        {/* Right Classroom Photo Background with clean diagonal clip */}
         <div
-          className="absolute left-[-80px] top-[5%] w-[220px] h-[640px] bg-[#ff8c00] opacity-85 rounded-3xl pointer-events-none transform -rotate-12 blur-xs"
-          aria-hidden="true"
+          className="absolute inset-0 hidden md:block bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${imgHeroStory})`,
+            clipPath: "polygon(42% 0, 100% 0, 100% 100%, 54% 100%)",
+          }}
         />
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-16 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="text-[#ff8c00] font-bold">—</span>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#ff8c00]">
-                  Our School
-                </span>
-              </div>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-10 lg:py-14 relative z-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            {/* Left Content Column */}
+            <div className="md:col-span-7 lg:col-span-6 flex flex-col gap-4 text-left">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-white">
+                OUR SCHOOL
+              </span>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.15] text-white">
-                Shaping futures at <br className="hidden sm:inline" />
-                <span className="text-[#ff8c00]">GS Gacuba II A</span>
+              <h1 className="font-extrabold text-[#111827] text-3xl sm:text-4xl lg:text-[44px] leading-[1.12] tracking-tight">
+                Shaping futures<br />
+                at <span className="text-white">GS Gacuba II A</span>
               </h1>
 
-              <p className="text-gray-200 text-base sm:text-[17px] leading-relaxed max-w-xl font-normal">
+              <p className="text-white text-xs sm:text-[13px] lg:text-[14px] leading-relaxed max-w-md font-normal opacity-95">
                 Welcome to the official GS Gacuba 2A website! Here, our community can explore school news, academic resources, and upcoming events as we work together to nurture academic excellence, strong values, and future leaders.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={handleAdmission}
-                  className="bg-white text-[#ff8c00] hover:bg-[#fff7ed] font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition-all flex items-center gap-2 group cursor-pointer"
+                  className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[44px] px-4 sm:px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span>Apply for admission</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
 
                 <button
                   onClick={handleAsk}
-                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition-all cursor-pointer"
+                  className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-4 sm:px-5 py-2.5 rounded-md shadow-xs border border-white/60 flex items-center justify-center cursor-pointer transition-colors"
                 >
                   Contact us
                 </button>
               </div>
             </div>
 
-            {/* Right Card: Classroom Image + Headmaster Overlay */}
-            <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-sm sm:max-w-md">
-                {/* Classroom Background Photo */}
-                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 aspect-4/3">
+            {/* Right Column: Classroom Photo on Mobile, and Headmaster Overlay Card */}
+            <div className="md:col-span-5 lg:col-span-6 relative flex flex-col sm:flex-row md:flex-col justify-center md:justify-end items-center md:items-end gap-4">
+              {/* On mobile only: show classroom photo */}
+              <div className="md:hidden w-full rounded-2xl overflow-hidden shadow-lg max-h-52">
+                <img
+                  src={imgHeroStory}
+                  alt="Classroom Study"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Overlaid Orange Staff/Headmaster Card */}
+              <div className="bg-[#ff8c00] text-white p-3.5 sm:p-4 rounded-2xl shadow-2xl border border-white/30 w-full max-w-[260px] sm:max-w-[280px]">
+                <div className="rounded-xl overflow-hidden bg-white/10 aspect-square mb-2.5 max-h-[170px] flex items-center justify-center">
                   <img
-                    src={imgHeroStory}
-                    alt="Students in classroom at GS Gacuba II A"
-                    className="w-full h-full object-cover"
+                    src={imgHeadmaster}
+                    alt="HABUMUGISHA Ernest"
+                    className="w-full h-full object-cover object-top grayscale"
                   />
                 </div>
-
-                {/* Overlaid Orange Card with Headmaster */}
-                <div className="absolute -bottom-6 -right-2 sm:-right-4 bg-[#ff8c00] text-white p-3 sm:p-4 rounded-2xl shadow-2xl border-2 border-white/40 max-w-[240px] sm:max-w-[260px]">
-                  <div className="rounded-xl overflow-hidden bg-[#211f54]/20 aspect-square mb-2.5 max-h-[140px]">
-                    <img
-                      src={imgHeadmaster}
-                      alt="HABUMUGISHA Ernest"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  <h4 className="font-bold text-sm leading-tight">HABUMUGISHA Ernest</h4>
-                  <p className="text-[11px] text-white/90 font-medium">Headmaster, GS Gacuba II A</p>
-                </div>
+                <h4 className="font-bold text-xs sm:text-sm leading-tight text-white">
+                  HABUMUGISHA Ernest
+                </h4>
+                <p className="text-[11px] text-white/90 font-normal mt-0.5">
+                  Headmistress, GS Gacuba II A
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* "A foundation built for the future" Section */}
-      <section className="bg-[#fff9ef] py-16 lg:py-24">
+      {/* 2. School Foundation Section: Aerial Photo (Left) + General School Content (Right) */}
+      <section className="bg-white py-12 sm:py-14 lg:py-16">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Campus Aerial Photo */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
+            {/* Left Column: Large Aerial Photo with Rounded Corners */}
             <div className="lg:col-span-6">
-              <div className="rounded-3xl overflow-hidden shadow-xl bg-gray-100 aspect-[4/3] relative">
+              <div className="rounded-2xl overflow-hidden shadow-md bg-gray-100 aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] max-h-[420px]">
                 <img
                   src={imgCampus}
-                  alt="GS Gacuba II A Campus Buildings in Rubavu"
+                  alt="GS Gacuba II A Campus Overview"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <h3 className="text-xl font-bold">Our Foundation. Our Campus.</h3>
-                  <p className="text-xs text-white/80">A place designed for curiosity, discipline and belonging</p>
-                </div>
               </div>
             </div>
 
-            {/* Right Column: General School Content & Highlights */}
-            <div className="lg:col-span-6 space-y-6">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[#ff8c00] font-bold">—</span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff8c00]">
-                    General School
-                  </span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-black text-[#211f54] leading-tight">
+            {/* Right Column: General School Text */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="space-y-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#ff8c00]">
+                  GENERAL SCHOOL
+                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-[#111827] leading-tight">
                   A foundation built for the future
                 </h2>
               </div>
 
-              <p className="text-[#656777] text-base leading-relaxed">
+              <p className="text-[#656777] text-xs sm:text-sm leading-relaxed max-w-lg">
                 GS Gacuba II A grew from a clear promise: give young people the knowledge, character, and confidence to shape Rwanda&apos;s next chapter. Our school brings rigorous academics and a caring community together.
               </p>
 
-              <div>
-                <h4 className="font-bold text-[#211f54] text-base mb-3">School highlights</h4>
-                <div className="grid grid-cols-2 gap-3">
+              <div className="pt-1">
+                <h4 className="font-bold text-[#111827] text-xs sm:text-sm mb-2.5">
+                  School highlights
+                </h4>
+                <ul className="space-y-2">
                   {highlights.map((h) => (
-                    <div key={h} className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#ff8c00] shrink-0" />
-                      <span className="text-sm font-medium text-[#211f54]">{h}</span>
-                    </div>
+                    <li key={h} className="flex items-center gap-2 text-xs sm:text-[13px] text-[#111827]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#ff8c00] shrink-0" />
+                      <span>{h}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate("gallery")}
-                  className="bg-[#211f54] hover:bg-[#2d2a70] text-white text-sm font-bold px-6 py-3.5 rounded-lg shadow-md transition-colors flex items-center gap-2 cursor-pointer"
+                  className="bg-[#1e244b] hover:bg-[#161a38] text-white text-xs sm:text-sm font-semibold min-h-[44px] px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span>Explore our school</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
@@ -184,53 +184,45 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
         </div>
       </section>
 
-      {/* "The school leadership" Section */}
-      <section className="relative py-16 lg:py-24 bg-gradient-to-b from-[#ff8c00]/15 via-[#fff3e0] to-white overflow-hidden">
-        {/* Halftone dot pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-15 pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(#ff8c00 1.5px, transparent 1.5px)",
-            backgroundSize: "20px 20px"
-          }}
-        />
-
+      {/* 3. School Leadership Section: team-section-background.jpg + 4 Cards */}
+      <section
+        className="relative py-14 sm:py-16 lg:py-20 bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: `url(${imgTeamBg})` }}
+      >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-          {/* Centered Header */}
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#211f54]">
+          {/* Centered Heading */}
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#111827] tracking-tight">
               The school leadership
             </h2>
-            <p className="text-[#5a5c62] text-sm sm:text-base leading-relaxed">
+            <p className="text-[#4a2c00]/90 text-xs sm:text-[13.5px] leading-relaxed max-w-xl mx-auto font-medium">
               Welcome to the heart of Groupe Scolaire Gacuba II A. Our dedicated staff works hard every day to guide, inspire, and support every student.
             </p>
           </div>
 
-          {/* 4 Leadership Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {/* 4 Leadership Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
             {leaders.map((leader, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group hover:shadow-2xl transition-all duration-300"
+                onClick={() => setActiveLeaderIndex(idx)}
+                className="bg-[#5c647b] rounded-2xl overflow-hidden shadow-xl flex flex-col cursor-pointer transition-transform hover:-translate-y-1 duration-200"
               >
-                {/* Arched Top Image Container */}
-                <div className="bg-[#656777] h-[280px] sm:h-[300px] relative overflow-hidden flex items-end justify-center">
+                {/* Gray/Slate Portrait Area with monochrome photo */}
+                <div className="h-[220px] sm:h-[240px] md:h-[260px] relative overflow-hidden flex items-end justify-center">
                   <img
                     src={imgHeadmaster}
                     alt={leader.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top grayscale contrast-110"
                   />
-                  {leader.featured && (
-                    <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-[#ff8c00] ring-4 ring-white/50" />
-                  )}
                 </div>
 
-                {/* Bottom Info Card */}
-                <div className="p-5 bg-white text-center flex flex-col items-center">
-                  <h4 className="font-bold text-[#211f54] text-base leading-tight">
+                {/* Bottom White Info Box */}
+                <div className="p-4 bg-white rounded-b-2xl">
+                  <h4 className="font-extrabold text-xs sm:text-[13px] text-[#111827]">
                     {leader.name}
                   </h4>
-                  <p className="text-xs font-semibold text-[#ff8c00] mt-1">
+                  <p className="text-[11px] font-semibold text-[#5452a3] mt-0.5">
                     {leader.role}
                   </p>
                 </div>
@@ -238,19 +230,38 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
             ))}
           </div>
 
+          {/* Indicator Dots below the cards */}
+          <div className="flex items-center justify-center gap-2.5 mt-8">
+            {leaders.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                onClick={() => setActiveLeaderIndex(dotIdx)}
+                aria-label={`Show leader ${dotIdx + 1}`}
+                className="cursor-pointer focus:outline-none p-1"
+              >
+                <span
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 block ${
+                    activeLeaderIndex === dotIdx
+                      ? "bg-[#ff8c00] scale-110 shadow-xs"
+                      : "bg-white shadow-xs hover:bg-white/80"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
           {/* Bottom Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
+          <div className="flex items-center justify-center gap-3.5 mt-8">
             <button
               onClick={handleAdmission}
-              className="bg-white hover:bg-gray-50 text-[#ff8c00] border-2 border-[#ff8c00] font-bold text-sm px-6 py-3.5 rounded-full shadow-sm transition-all flex items-center gap-2 cursor-pointer"
+              className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[42px] px-5 py-2.5 rounded-[4px] shadow-sm flex items-center justify-center cursor-pointer transition-colors"
             >
-              <span>Apply for admission</span>
-              <ArrowRight className="w-4 h-4" />
+              Apply for admission —
             </button>
 
             <button
               onClick={handleAsk}
-              className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition-all cursor-pointer"
+              className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[42px] px-5 py-2.5 rounded-[4px] shadow-sm flex items-center justify-center cursor-pointer transition-colors"
             >
               Ask about us
             </button>
@@ -258,7 +269,7 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
         </div>
       </section>
 
-      {/* Footer */}
+      {/* 4. Footer */}
       <Footer onNavigate={onNavigate} />
     </div>
   );

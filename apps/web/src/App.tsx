@@ -5,23 +5,32 @@ import AboutPage from "./pages/AboutPage";
 import GalleryPage from "./pages/GalleryPage";
 import NewsPage from "./pages/NewsPage";
 import AcademicsPage from "./pages/AcademicsPage";
-import AdmissionsPage from "./pages/AdmissionsPage";
-import StudentLifePage from "./pages/StudentLifePage";
-import FacilitiesPage from "./pages/FacilitiesPage";
-import LeadershipPage from "./pages/LeadershipPage";
-import CareersPage from "./pages/CareersPage";
-import FAQPage from "./pages/FAQPage";
-import ContactPage from "./pages/ContactPage";
-import AskModal from "./components/AskModal";
+import ComingSoonPage from "./pages/ComingSoonPage";
+import ContactModal from "./components/ContactModal";
 import AdmissionModal from "./components/AdmissionModal";
 import UserProfileModal from "./components/UserProfileModal";
+import SearchModal from "./components/SearchModal";
+
+const pageTitleMap: Record<string, string> = {
+  news: "News & Events",
+  academics: "Academics",
+  admissions: "Admissions",
+  "student-life": "Student Life",
+  facilities: "Campus Facilities",
+  leadership: "School Leadership",
+  careers: "Careers & Opportunities",
+  faq: "Frequently Asked Questions",
+  contact: "Contact Us",
+};
 
 export default function App() {
   const [activePage, setActivePage] = useState<string>("home");
-  const [askModalOpen, setAskModalOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const [admissionModalOpen, setAdmissionModalOpen] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
-  const [initialAskQuery, setInitialAskQuery] = useState("");
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [initialSearchQuery, setInitialSearchQuery] = useState("");
+  const [initialInquiryTopic, setInitialInquiryTopic] = useState("");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -31,13 +40,18 @@ export default function App() {
     setActivePage(page);
   }
 
+  function handleOpenSearch(query?: string) {
+    setInitialSearchQuery(query || "");
+    setSearchModalOpen(true);
+  }
+
   function handleOpenAsk(query?: string) {
     if (query) {
-      setInitialAskQuery(query);
+      setInitialInquiryTopic(query);
     } else {
-      setInitialAskQuery("");
+      setInitialInquiryTopic("");
     }
-    setAskModalOpen(true);
+    setContactModalOpen(true);
   }
 
   function handleOpenAdmission() {
@@ -57,6 +71,7 @@ export default function App() {
         onOpenAsk={handleOpenAsk}
         onOpenAdmission={handleOpenAdmission}
         onOpenProfile={handleOpenProfile}
+        onOpenSearch={handleOpenSearch}
       />
 
       {/* Main Page Routing */}
@@ -101,70 +116,37 @@ export default function App() {
           />
         )}
 
-        {activePage === "admissions" && (
-          <AdmissionsPage
-            onNavigate={handleNavigate}
-            onOpenAdmission={handleOpenAdmission}
-            onOpenAsk={handleOpenAsk}
-          />
-        )}
-
-        {activePage === "student-life" && (
-          <StudentLifePage
-            onNavigate={handleNavigate}
-            onOpenAdmission={handleOpenAdmission}
-            onOpenAsk={handleOpenAsk}
-          />
-        )}
-
-        {activePage === "facilities" && (
-          <FacilitiesPage
-            onNavigate={handleNavigate}
-            onOpenAdmission={handleOpenAdmission}
-            onOpenAsk={handleOpenAsk}
-          />
-        )}
-
-        {activePage === "leadership" && (
-          <LeadershipPage
-            onNavigate={handleNavigate}
-            onOpenAdmission={handleOpenAdmission}
-            onOpenAsk={handleOpenAsk}
-          />
-        )}
-
-        {activePage === "careers" && (
-          <CareersPage
-            onNavigate={handleNavigate}
-            onOpenAdmission={handleOpenAdmission}
-            onOpenAsk={handleOpenAsk}
-          />
-        )}
-
-        {activePage === "faq" && (
-          <FAQPage
-            onNavigate={handleNavigate}
-            onOpenAdmission={handleOpenAdmission}
-            onOpenAsk={handleOpenAsk}
-          />
-        )}
-
-        {activePage === "contact" && (
-          <ContactPage
-            onNavigate={handleNavigate}
-            onOpenAdmission={handleOpenAdmission}
-            onOpenAsk={handleOpenAsk}
-          />
-        )}
+        {activePage !== "home" &&
+          activePage !== "about" &&
+          activePage !== "gallery" &&
+          activePage !== "news" &&
+          activePage !== "academics" && (
+            <ComingSoonPage
+              pageKey={activePage}
+              pageName={pageTitleMap[activePage] || "Page"}
+              onNavigate={handleNavigate}
+              onOpenAdmission={handleOpenAdmission}
+            />
+          )}
       </main>
 
-      {/* Interactive AI Assistant Modal */}
-      <AskModal
-        isOpen={askModalOpen}
-        onClose={() => setAskModalOpen(false)}
-        initialQuery={initialAskQuery}
+      {/* Instant Spotlight / Search Modal */}
+      <SearchModal
+        isOpen={searchModalOpen}
+        onClose={() => setSearchModalOpen(false)}
+        initialQuery={initialSearchQuery}
         onNavigate={handleNavigate}
         onOpenAdmission={handleOpenAdmission}
+        onOpenContact={handleOpenAsk}
+        onOpenProfile={handleOpenProfile}
+      />
+
+      {/* Direct Contact / Inquiry Modal for the Ask button */}
+      <ContactModal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+        initialTopic={initialInquiryTopic}
+        onNavigate={handleNavigate}
       />
 
       {/* Interactive Admission Application Modal */}
@@ -184,3 +166,4 @@ export default function App() {
     </div>
   );
 }
+

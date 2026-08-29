@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 const imgHeroStory = "/assets/c1786.png";
 const imgHeadmaster = "/assets/e9332.png";
 const imgCampus = "/assets/612da.png";
+const imgTeamBg = "/assets/team-section-background.jpg";
 
 const highlights = [
   "Science lab",
@@ -183,70 +184,32 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
         </div>
       </section>
 
-      {/* 3. School Leadership Section: Decorative Graphic Background + 4 Cards */}
-      <section className="relative py-12 sm:py-14 lg:py-18 bg-gradient-to-r from-[#e87500] via-[#f58220] to-[#e67500] overflow-hidden">
-        {/* Decorative Wave/Curved Contour Lines in Background */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none opacity-30"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 600"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M-100,50 C300,10 700,120 1100,30 C1300,-15 1500,80 1600,150"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,120 C320,80 720,180 1120,90 C1320,45 1520,140 1600,210"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,200 C350,160 750,260 1150,170 C1350,120 1550,220 1600,300"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M-100,300 C400,250 800,350 1200,250 C1400,200 1600,300 1600,380"
-            fill="none"
-            stroke="#ffd599"
-            strokeWidth="1.5"
-          />
-        </svg>
-
-        {/* Translucent Decorative Circles/Ellipses in Background */}
-        <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-yellow-300/15 blur-2xl pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-yellow-400/15 blur-2xl pointer-events-none" />
-
+      {/* 3. School Leadership Section: team-section-background.jpg + 4 Cards */}
+      <section
+        className="relative py-14 sm:py-16 lg:py-20 bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: `url(${imgTeamBg})` }}
+      >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
           {/* Centered Heading */}
-          <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#111827]">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#111827] tracking-tight">
               The school leadership
             </h2>
-            <p className="text-[#6b3300] text-xs sm:text-sm leading-relaxed">
+            <p className="text-[#4a2c00]/90 text-xs sm:text-[13.5px] leading-relaxed max-w-xl mx-auto font-medium">
               Welcome to the heart of Groupe Scolaire Gacuba II A. Our dedicated staff works hard every day to guide, inspire, and support every student.
             </p>
           </div>
 
           {/* 4 Leadership Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
             {leaders.map((leader, idx) => (
               <div
                 key={idx}
                 onClick={() => setActiveLeaderIndex(idx)}
-                className={`bg-white rounded-xl overflow-hidden shadow-md border transition-all duration-200 cursor-pointer flex flex-col group ${
-                  activeLeaderIndex === idx
-                    ? "ring-2 ring-[#ff8c00] shadow-lg scale-[1.02]"
-                    : "border-white/20 hover:shadow-lg hover:border-[#ff8c00]/40"
-                }`}
+                className="bg-[#5c647b] rounded-2xl overflow-hidden shadow-xl flex flex-col cursor-pointer transition-transform hover:-translate-y-1 duration-200"
               >
                 {/* Gray/Slate Portrait Area with monochrome photo */}
-                <div className="bg-[#4b5563] h-[200px] sm:h-[220px] md:h-[240px] relative overflow-hidden flex items-end justify-center">
+                <div className="h-[220px] sm:h-[240px] md:h-[260px] relative overflow-hidden flex items-end justify-center">
                   <img
                     src={imgHeadmaster}
                     alt={leader.name}
@@ -255,11 +218,11 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
                 </div>
 
                 {/* Bottom White Info Box */}
-                <div className="p-3.5 bg-white">
-                  <h4 className="font-bold text-xs sm:text-[13px] text-[#111827]">
+                <div className="p-4 bg-white rounded-b-2xl">
+                  <h4 className="font-extrabold text-xs sm:text-[13px] text-[#111827]">
                     {leader.name}
                   </h4>
-                  <p className="text-[11px] text-[#2563eb] font-medium mt-0.5">
+                  <p className="text-[11px] font-semibold text-[#5452a3] mt-0.5">
                     {leader.role}
                   </p>
                 </div>
@@ -267,20 +230,20 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
             ))}
           </div>
 
-          {/* Active Image Indicator Dots below the cards with accessible touch padding */}
-          <div className="flex items-center justify-center gap-3 mt-6">
+          {/* Indicator Dots below the cards */}
+          <div className="flex items-center justify-center gap-2.5 mt-8">
             {leaders.map((_, dotIdx) => (
               <button
                 key={dotIdx}
                 onClick={() => setActiveLeaderIndex(dotIdx)}
                 aria-label={`Show leader ${dotIdx + 1}`}
-                className="p-2 -m-2 cursor-pointer flex items-center justify-center focus:outline-none"
+                className="cursor-pointer focus:outline-none p-1"
               >
                 <span
-                  className={`h-2.5 rounded-full transition-all duration-300 block ${
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 block ${
                     activeLeaderIndex === dotIdx
-                      ? "w-7 bg-[#ff8c00]"
-                      : "w-2.5 bg-[#111827]/25 hover:bg-[#111827]/40"
+                      ? "bg-[#ff8c00] scale-110 shadow-xs"
+                      : "bg-white shadow-xs hover:bg-white/80"
                   }`}
                 />
               </button>
@@ -288,18 +251,17 @@ export default function AboutPage({ onNavigate, onOpenAdmission, onOpenAsk }: Ab
           </div>
 
           {/* Bottom Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mt-8 sm:mt-10">
+          <div className="flex items-center justify-center gap-3.5 mt-8">
             <button
               onClick={handleAdmission}
-              className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+              className="bg-white text-[#ff8c00] hover:bg-orange-50 font-bold text-xs sm:text-[13px] min-h-[42px] px-5 py-2.5 rounded-[4px] shadow-sm flex items-center justify-center cursor-pointer transition-colors"
             >
-              <span>Apply for admission</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              Apply for admission —
             </button>
 
             <button
               onClick={handleAsk}
-              className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[44px] px-5 py-2.5 rounded-md shadow-xs border border-white/30 flex items-center justify-center cursor-pointer transition-colors"
+              className="bg-[#ff8c00] hover:bg-[#e07b00] text-white font-bold text-xs sm:text-[13px] min-h-[42px] px-5 py-2.5 rounded-[4px] shadow-sm flex items-center justify-center cursor-pointer transition-colors"
             >
               Ask about us
             </button>
