@@ -4,7 +4,12 @@
 The frontend is a high-performance React 19 Single Page Application bundled with Vite and styled via Tailwind CSS, designed for mobile-first precision and responsive desktop elegance.
 
 ## 2. Page Architecture & Routing State
-The application state router in `src/App.tsx` coordinates smooth transitions across the following views:
+The application state router in `src/App.tsx` coordinates smooth transitions and bidirectional URL synchronization across all views:
+- **URL Synchronization**: Automatically synchronizes browser address bar using `window.history.pushState` and `window.history.replaceState`.
+- **Browser History Integration**: Listens to `popstate` events so browser Back and Forward navigation works seamlessly without page reloads.
+- **Deep-linking & Query Parameters**: Supports query parameters (`?apply=true`, `?ask=...`, `?search=...`, `?profile=true`) to launch modals and spotlight search directly.
+- **Dynamic SEO & Metadata**: Dynamically updates `document.title`, `<meta name="description">`, and OpenGraph tags per route.
+- **Error Boundary**: Robust `ErrorBoundary` wrapper preventing mobile extensions or runtime issues from causing blank screens.
 
 - **Active Core Production Pages**:
   - `HomePage` (`src/pages/HomePage.tsx`): Flagship landing page featuring school branding, stats, streams, value proposition, student achievements, and CTAs.

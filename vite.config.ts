@@ -30,8 +30,10 @@ export default defineConfig({
     port: 3000,
   },
 
+  base: "/",
+
   build: {
-    target: "es2022",
+    target: "es2020",
     sourcemap: false,
     cssMinify: true,
     reportCompressedSize: true,

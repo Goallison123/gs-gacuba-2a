@@ -2,7 +2,20 @@
 
 All notable changes to the GS Gacuba II A platform are documented in this file.
 
-## [3.1.0] - 2026-08-29
+## [3.2.0] - 2026-08-31
+### Added & Enhanced (Browser URL Synchronization & Mobile Deployment Hardening)
+- **URL Routing & Address Bar Synchronization**:
+  - Implemented bidirectional HTML5 History API URL synchronization (`window.history.pushState` / `replaceState` and `popstate` listeners).
+  - Browser address bar now displays clean, real-time URLs for all routes (e.g. `/`, `/about`, `/gallery`, `/news`, `/academics`, `/admissions`, `/student-life`, `/facilities`, `/leadership`, `/careers`, `/faq`, `/contact`).
+  - Added URL alias mapping (e.g. `/about-us` -> `/about`, `/events` -> `/news`, `/curriculum` -> `/academics`, `/apply` -> `/admissions`).
+  - Added deep-linking query param actions (`?apply=true`, `?ask=...`, `?search=...`, `?profile=true`).
+  - Dynamic page `<title>` and `<meta name="description">` synchronization on every route change.
+- **Mobile View & Deployment Hardening**:
+  - Configured `vercel.json` with SPA wildcard rewrite rules (`/(.*)` -> `/index.html`) to prevent 404s on subpaths.
+  - Added security headers and asset caching directives in `vercel.json`.
+  - Configured `vite.config.ts` build target to `es2020` for broader mobile browser (iOS Safari, Android WebViews) compatibility.
+  - Added `ErrorBoundary` component to isolate runtime script errors from breaking the page view.
+  - Enhanced `index.html` viewport settings (`viewport-fit=cover`, `maximum-scale=5.0`), favicon and apple touch icons.
 ### Added (Academics Page Implementation & Pathway Alignment)
 - **Split Hero Section**:
   - Implemented the diagonal angular split banner with left vibrant orange gradient containing the `ACADEMICS` eyebrow, two-tone headline (*"Excellence in"* in white and *"every discipline"* in navy), description, and CTA buttons (*"Explore programs →"* and *"Curriculum overview"*).
