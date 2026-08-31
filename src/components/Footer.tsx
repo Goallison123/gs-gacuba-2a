@@ -15,6 +15,7 @@ const quickLinks = [
   { label: "Home", page: "home" },
   { label: "About Us", page: "about" },
   { label: "Academics", page: "academics" },
+  { label: "Sports & Entertainment", page: "sports" },
   { label: "Admissions", page: "admissions" },
   { label: "Gallery", page: "gallery" },
   { label: "News & Events", page: "news" },

@@ -2,6 +2,91 @@
 
 All notable changes to the GS Gacuba II A platform are documented in this file.
 
+## [3.3.5] - 2026-08-31
+### Refined (Clean Highlight Reel Video Player)
+- **Distraction-Free Video Experience**:
+  - Removed all modal header banners, textual descriptions, audio toggles, and admission CTA footers when opening the highlights reel.
+  - Implemented a clean, full-viewport video modal with native controls, autoplay, escape-key/backdrop dismiss, and a floating close button.
+
+## [3.3.4] - 2026-08-31
+### Refined (Sports Discipline Cards Cleaning)
+- **Removed Overlay Pill Tags**:
+  - Removed the *"Boys & Girls Squads"*, *"Regional Finalists"*, and *"Track & Field"* overlay badges from the top-right of the sports disciplines cards to provide an unoccluded presentation matching the clean design.
+
+## [3.3.3] - 2026-08-31
+### Refined (Hero Typography & Unbroken Stats Bar)
+- **Unbroken 3-Line Headline**:
+  - Enforced `whitespace-nowrap` with fluid responsive font scaling (`text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[56px] 2xl:text-[64px]`) on each line (*"Build strength."*, *"Build discipline."*, and *"Build champions."*).
+  - Adjusted left column width allocation to ensure zero mid-phrase text wrapping across viewports.
+- **Single Continuous Stats Bar**:
+  - Configured `15+ Sports and Games`, `3 Teams`, and `20 Awards` to remain strictly in a single unbroken horizontal line (`flex-nowrap`, `shrink-0`) with vertical white dividers.
+
+## [3.3.2] - 2026-08-31
+### Refined (Sports & Entertainment Hero Exact Reference Alignment)
+- **Seamless Athlete Cutouts (No Cards / No White Boxes)**:
+  - Extracted transparent PNG cutouts for the three athletes matching the exact reference composition:
+    - Basketball player (#44) leaping up high with the basketball raised above head level.
+    - Traditional Rwandan cultural dancer in yellow/orange and black Umushanana attire with outstretched arms and warm smile in the center.
+    - Goalkeeper in lime green jersey diving horizontally to the right, catching the soccer ball in the upper right.
+- **Orange Hero Geometry & Watermark**:
+  - Full semicircle pill curve (`rounded-r-full` / `rounded-r-[380px]`) on the right side of the vibrant orange canvas (`#f58220`).
+  - School campus building facade watermark blended subtly (`mix-blend-multiply` with low opacity) into the orange background.
+- **Inline High-Contrast Stats & Typography**:
+  - Clean horizontal stat row (`15+ Sports and Games`, `3 Teams`, `20 Awards`) with thin vertical white dividers directly on the orange canvas without enclosing boxes.
+  - Three-line headline: *"Build strength."* and *"Build discipline."* in dark navy, paired with *"Build champions."* in crisp white.
+  - Top category eyebrow: *"OUR SPORTS"* in bold white uppercase.
+- **Header Synchronization**:
+  - Ensured header is completely unclipped with full search bar (`"Search for anything about Gacuba"`), logo, navigation links, user profile trigger, and Ask action button.
+
+## [3.3.1] - 2026-08-31
+### Refined (Sports & Entertainment Page Alignment to Reference Screenshots 2–4)
+- **Large Hero Proportions & Card Collage**:
+  - Expanded hero canvas with bold high-contrast 3-line typography (*"Build strength."* and *"Build discipline."* in dark navy, *"Build champions."* in crisp white).
+  - Stat card container aligned to 2-row layout (`15+ Sports and Games` | `3 Teams` on top row, `20 Awards` on bottom row) with translucent glass backdrop and clean border.
+  - Replaced flat cutout arrangement with 3 rounded white card frames:
+    - Basketball player card with dark navy *"Basketball"* badge.
+    - Goalkeeper card with dark navy *"Varsity Football"* badge.
+    - Traditional Rwandan dancer central featured card with natural layering and shadow depth.
+- **Sport Disciplines Cards (Screenshot 3 Matching)**:
+  - Card 1 (Basketball): Updated to exact coach/faculty portrait (`/assets/07117.png`), *"Boys & Girls Squads"* status tag, floating circular basketball icon, and *"Learn more →"* action link.
+  - Card 2 (Football): Updated to student group uniform photograph (`/assets/046d0.png`), *"Regional Finalists"* status tag, and floating soccer icon.
+  - Card 3 (Athletics): Updated to track & field faculty portrait (`/assets/017b1.png`), *"Track & Field"* status tag, and floating athletics icon.
+  - Premium micro-interactions with upward lift, subtle border shadows, and image zoom.
+- **Beyond the Game & CTA Sections (Screenshot 4 Matching)**:
+  - Left column with clear typography hierarchy (*"Growing champions for life"*), orange checkmarks, and *"Apply for Admission →"* button.
+  - Large cheering crowd photo card with pulsating play button and *"SPORTS HIGHLIGHTS / SEE OUR CHAMPIONS IN ACTION"* overlay with *"Watch Reel →"* pill badge.
+  - Full-width golden orange CTA with circular outline trophy icon and action buttons.
+  - Clean desktop whitespace and removed unintended side margin text.
+
+## [3.3.0] - 2026-08-31
+### Added (Sports & Entertainment Page Implementation)
+- **Hero Section**:
+  - Curved vibrant orange container (`rounded-tr-[160px] rounded-br-[160px]`) with blueprint grid watermark.
+  - Three-line high impact headline: *"Build strength."* (Navy), *"Build discipline."* (Navy), and *"Build champions."* (White).
+  - Subtitle: *"Sports at Gacuba inspires teamwork, discipline and excellence on and off the field."*
+  - Stat metrics counter bar with translucent glass card: `15+ Sports and Games` (Trophy), `3 Teams` (Users), and `20 Awards` (Medal).
+  - Layered dynamic athletic cutout composite:
+    - Basketball player soaring towards the hoop (`/assets/sports-basketball-jump.jpg`).
+    - Traditional Rwandan cultural dancer in Umushanana attire with outstretched arms (`/assets/sports-rwandan-dancer.jpg`).
+    - Soccer goalkeeper diving horizontally in mid-air catching a ball (`/assets/sports-goalkeeper-dive.jpg`).
+- **Vertical Typography Accent**:
+  - Stylized vertical decorative typography along the right page margin: *"A place for every passion."*
+- **Our Sport Disciplines Section**:
+  - Eyebrow (`OUR SPORT DISCIPLINES`) and heading (*"Excel in your favorite sport"*).
+  - 3 Discipline cards with photo headers, floating circular orange icon badges, titles, and descriptions:
+    - **Basketball**: *"Building strategy, agility and team spirit."*
+    - **Football**: *"Strength, endurance and team work."*
+    - **Athletics**: *"Speed, endurance and determination."*
+- **Beyond the Game Section**:
+  - Headline: *"Growing champions for life"*, description, checklist with orange circular badges (*Modern sports materials*, *Inter-school competitions*, *Health, wellness and safety first*), and *"Apply for Admission →"* CTA button.
+  - Interactive media card featuring the cheering crowd photo (`/assets/sports-cheering-crowd.jpg`), pulsing play button, and interactive championship highlights video reel modal.
+- **Bottom Golden Orange Banner**:
+  - Large trophy badge in circular outline, headline (*"Be part of the spirit. Be part of the team."*), and action buttons (*"Apply for admissions →"* and *"Talk to admissions →"*).
+- **Navigation & Search Integration**:
+  - Registered route `/sports` and aliases (`/sports-and-entertainment`, `/athletics`, `/games`, `/entertainment`).
+  - Added Sports & Entertainment to Header dropdown and Footer quick links.
+  - Added sports records and disciplines to global search and Spotlight database.
+
 ## [3.2.0] - 2026-08-31
 ### Added & Enhanced (Browser URL Synchronization & Mobile Deployment Hardening)
 - **URL Routing & Address Bar Synchronization**:

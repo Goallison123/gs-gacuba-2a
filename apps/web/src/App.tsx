@@ -5,6 +5,7 @@ import AboutPage from "./pages/AboutPage";
 import GalleryPage from "./pages/GalleryPage";
 import NewsPage from "./pages/NewsPage";
 import AcademicsPage from "./pages/AcademicsPage";
+import SportsPage from "./pages/SportsPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 import ContactModal from "./components/ContactModal";
 import AdmissionModal from "./components/AdmissionModal";
@@ -31,6 +32,10 @@ const pageMetaMap: Record<string, { title: string; desc: string }> = {
   academics: {
     title: "Academics & Pathways | GS Gacuba II A",
     desc: "Explore academic streams at GS Gacuba II A including Advanced Level (MS2, Arts & Humanities) and Ordinary Level CBC foundations.",
+  },
+  sports: {
+    title: "Sports & Entertainment | GS Gacuba II A",
+    desc: "Build strength, discipline, and champions. Explore basketball, football, athletics, and cultural troupes at GS Gacuba II A in Rubavu.",
   },
   admissions: {
     title: "Admissions | GS Gacuba II A",
@@ -78,6 +83,12 @@ const routeAliases: Record<string, string> = {
   "academic-programs": "academics",
   programs: "academics",
   curriculum: "academics",
+  sports: "sports",
+  "sports-and-entertainment": "sports",
+  "sports-entertainment": "sports",
+  athletics: "sports",
+  entertainment: "sports",
+  games: "sports",
   admissions: "admissions",
   admission: "admissions",
   apply: "admissions",
@@ -301,11 +312,20 @@ export default function App() {
           />
         )}
 
+        {activePage === "sports" && (
+          <SportsPage
+            onNavigate={handleNavigate}
+            onOpenAdmission={handleOpenAdmission}
+            onOpenAsk={handleOpenAsk}
+          />
+        )}
+
         {activePage !== "home" &&
           activePage !== "about" &&
           activePage !== "gallery" &&
           activePage !== "news" &&
-          activePage !== "academics" && (
+          activePage !== "academics" &&
+          activePage !== "sports" && (
             <ComingSoonPage
               pageKey={activePage}
               pageName={pageMetaMap[activePage]?.title?.split("|")[0]?.trim() || "Page"}

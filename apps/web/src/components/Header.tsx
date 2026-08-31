@@ -13,7 +13,8 @@ import {
   HelpCircle,
   Briefcase,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Trophy,
 } from "lucide-react";
 import { searchSchool, searchDatabase, SearchItem } from "../data/searchDatabase";
 
@@ -141,6 +142,7 @@ export default function Header({
 
   const moreLinks = [
     { label: "Academics", page: "academics", icon: BookOpen, desc: "MS2, Arts & Humanities, O-Level" },
+    { label: "Sports & Entertainment", page: "sports", icon: Trophy, desc: "Basketball, football, athletics & culture" },
     { label: "Admissions", page: "admissions", icon: GraduationCap, desc: "Requirements, 2026 intake & fees" },
     { label: "Student Life", page: "student-life", icon: Users, desc: "Clubs, athletics & cultural troupe" },
     { label: "Campus Facilities", page: "facilities", icon: Building2, desc: "ICT Hub, Science Labs & Library" },
@@ -179,7 +181,7 @@ export default function Header({
                   setSearchQuery(e.target.value);
                   setIsSearchFocused(true);
                 }}
-                placeholder="Search anything (contacts, team, MPC...)"
+                placeholder="Search for anything about Gacuba"
                 className="w-full bg-white border border-[#d1d5db] text-[#211f54] text-xs rounded-md pl-3 pr-14 py-2 focus:border-[#ff8c00] focus:ring-1 focus:ring-[#ff8c00] outline-none transition-all placeholder:text-[#9ca3af]"
               />
               <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
@@ -335,7 +337,7 @@ export default function Header({
                 type="button"
                 onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
                 className={`flex items-center gap-1 font-medium transition-colors cursor-pointer ${
-                  ["academics", "admissions", "student-life", "facilities", "leadership", "careers", "faq", "contact"].includes(activePage)
+                  ["academics", "sports", "admissions", "student-life", "facilities", "leadership", "careers", "faq", "contact"].includes(activePage)
                     ? "text-[#111827] font-bold"
                     : "text-[#4b5563] hover:text-[#111827]"
                 }`}
