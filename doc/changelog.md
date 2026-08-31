@@ -2,6 +2,13 @@
 
 All notable changes to the GS Gacuba II A platform are documented in this file.
 
+## [3.3.6] - 2026-08-31
+### Fixed (Content-Security-Policy & Gitignore Hygiene)
+- **Content-Security-Policy Configuration**:
+  - Added an explicit `Content-Security-Policy` header in `vercel.json` permitting `'self'`, scripts, styles, fonts, images, media sources, and connection endpoints to eliminate `script-src 'none'` blockage on Vercel deployments.
+- **Repository Exclusions & Git Cleanliness**:
+  - Updated `.gitignore` to recursively exclude all `node_modules/`, `dist/`, `.output/`, build artifacts, cache files, and environment files across root and workspace directories to prevent any compiled assets or dependencies from polluting the GitHub repository.
+
 ## [3.3.5] - 2026-08-31
 ### Refined (Clean Highlight Reel Video Player)
 - **Distraction-Free Video Experience**:
