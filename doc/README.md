@@ -18,4 +18,5 @@ Welcome to the comprehensive engineering, design, and operational documentation 
 12. [Security Guidelines](./security.md) — Input sanitization, CORS policy, rate limiting, and data privacy.
 13. [Deployment & Infrastructure](./deployment.md) — Containerization, Nginx reverse proxy, CI/CD pipelines.
 14. [Maintenance Runbook](./maintenance.md) — Operational runbooks, data backups, log monitoring, and troubleshooting.
-15. [Changelog](./changelog.md) — Version history, feature releases, and milestone achievements.
+15. [Blockers & Troubleshooting](./blockers.md) — Root cause analysis for CSP errors, script blocking, and deployment troubleshooting.
+16. [Changelog](./changelog.md) — Version history, feature releases, and milestone achievements.
