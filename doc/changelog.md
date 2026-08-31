@@ -2,6 +2,14 @@
 
 All notable changes to the GS Gacuba II A platform are documented in this file.
 
+## [3.3.7] - 2026-08-31
+### Fixed (Content Security Policy Meta Tag & Path Verification)
+- **CSP Meta Tag & Header Alignment**:
+  - Embedded a complete `<meta http-equiv="Content-Security-Policy">` directive in `index.html` allowing `script-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob:` and `default-src 'self' https: data: blob:`.
+  - Maintained corresponding CSP headers in `vercel.json` to ensure script execution and asset delivery without `script-src 'none'` errors across hosting environments.
+- **Path Auditing**:
+  - Verified that all asset references utilize absolute project root paths (`/assets/...`, `/src/...`) with `base: "/"` in `vite.config.ts`, ensuring no local `file:///` or hardcoded machine paths exist.
+
 ## [3.3.6] - 2026-08-31
 ### Fixed (Content-Security-Policy & Gitignore Hygiene)
 - **Content-Security-Policy Configuration**:
